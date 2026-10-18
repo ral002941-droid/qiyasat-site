@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>الملف الشخصي | قياسات</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--cream:#FAF7F2;--lavender:#E9DFF2;--purple:#594477;--dark:#30283A;--muted:#81778B;--white:#fff;--border:#E8E0EB;--danger:#A74755}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Cairo,sans-serif;background:var(--cream);color:var(--dark)}
+    a{text-decoration:none;color:inherit}
+    button,input{font:inherit}
+    header{background:rgba(255,255,255,.95);border-bottom:1px solid var(--border);padding:14px 6%;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .brand{color:var(--purple);font-weight:800;font-size:23px}
+    nav{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:14px}
+    nav a:hover{color:var(--purple)}
+    .page{width:min(1100px,92%);margin:32px auto 60px}
+    .welcome{background:var(--lavender);border-radius:22px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .welcome h1{margin:0 0 8px;font-size:clamp(24px,4vw,32px);color:var(--purple)}
+    .welcome p{margin:0;color:#665875;line-height:1.9}
+    .avatar{width:76px;height:76px;border-radius:50%;background:white;color:var(--purple);display:grid;place-items:center;font-size:31px;font-weight:800;border:2px solid rgba(89,68,119,.15)}
+    .layout{display:grid;grid-template-columns:235px minmax(0,1fr);gap:22px;margin-top:24px;align-items:start}
+    .panel,.card{background:white;border:1px solid var(--border);border-radius:18px;padding:22px;min-width:0}
+    .side-menu{display:grid;gap:8px}
+    .side-menu a{padding:11px 13px;border-radius:11px;color:#655B70;font-size:14px}
+    .side-menu a.active,.side-menu a:hover{background:var(--lavender);color:var(--purple);font-weight:700}
+    .content{display:grid;gap:20px;min-width:0}
+    .section-heading{font-size:19px;color:var(--purple);margin:0 0 6px}
+    .hint{color:var(--muted);font-size:13px;line-height:1.8;margin:0 0 20px}
+    .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .field{display:grid;gap:7px}
+    .field label{font-size:13px;font-weight:700}
+    .field input{width:100%;min-width:0;border:1px solid var(--border);border-radius:10px;background:#FFFEFD;padding:12px;outline:none}
+    .field input:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(89,68,119,.08)}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .btn{border:0;border-radius:10px;padding:10px 16px;cursor:pointer;display:inline-flex;justify-content:center;align-items:center;font-weight:700;font-size:13px}
+    .primary{color:white;background:var(--purple)}
+    .secondary{background:var(--lavender);color:var(--purple)}
+    .danger{background:#F9EAEC;color:var(--danger)}
+    .btn:hover{opacity:.88}
+    .notice{margin-top:12px;color:var(--purple);font-size:13px;line-height:1.8}
+    .quick-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .quick-link{border:1px solid var(--border);border-radius:13px;padding:16px;transition:.2s}
+    .quick-link:hover{border-color:var(--purple);background:#FCFAFD}
+    .quick-link strong{display:block;color:var(--purple);margin-bottom:5px}
+    .quick-link span{font-size:12px;color:var(--muted);line-height:1.8}
+    .favorite-group{margin-top:22px}
+    .favorite-group:first-of-type{margin-top:0}
+    .favorite-group h3{font-size:15px;color:var(--dark);margin:0 0 10px}
+    .favorite-list{border:1px solid var(--border);border-radius:12px;padding:0 13px}
+    .list-item{padding:12px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px}
+    .list-item:last-child{border-bottom:0}
+    .item-name{font-weight:700;overflow-wrap:anywhere}
+    .item-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
+    .item-actions a{color:var(--purple);font-weight:700}
+    .remove{border:0;background:none;color:var(--danger);cursor:pointer;font-size:12px;padding:4px}
+    .empty{background:#FCFAFD;border:1px dashed #D8C9E2;border-radius:12px;padding:16px;color:var(--muted);font-size:13px;line-height:1.9}
+    footer{text-align:center;padding:24px;color:var(--muted);font-size:12px}
+    @media(max-width:720px){
+      header{padding:14px 4%}
+      nav{gap:11px}
+      .page{margin-top:20px}
+      .layout{grid-template-columns:1fr}
+      .side-menu{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .form-grid,.quick-links{grid-template-columns:1fr}
+      .panel,.card{padding:17px}
+      .welcome{padding:22px}
+    }
+    @media(max-width:420px){.list-item{align-items:flex-start;flex-direction:column}.item-actions{align-self:flex-start}}
+  </style>
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html">قياسات</a>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="stores.html">الأقسام</a>
+    <a href="products.html">المنتجات</a>
+    <a href="measurements.html">دليل المقاسات</a>
+    <a href="support.html">الدعم</a>
+  </nav>
+</header>
+
+<main class="page">
+  <section class="welcome">
+    <div>
+      <h1>ملفي الشخصي</h1>
+      <p>بياناتك وأقسامك ومنتجاتك ومتاجرك المفضلة في مكان واحد.</p>
+    </div>
+    <div class="avatar" id="avatar">م</div>
+  </section>
+
+  <div class="layout">
+    <aside class="panel">
+      <div class="side-menu">
+        <a class="active" href="#account">بيانات الحساب</a>
+        <a href="#measurements">مقاساتي</a>
+        <a href="#favorites">المفضلة</a>
+        <a href="#shortcuts">روابط سريعة</a>
+      </div>
+    </aside>
+
+    <div class="content">
+      <section class="card" id="account">
+        <h2 class="section-heading">بيانات الحساب</h2>
+        <p class="hint">تُحفظ هذه البيانات على هذا المتصفح فقط في النسخة التجريبية.</p>
+        <form id="profileForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="fullName">الاسم</label>
+              <input id="fullName" type="text" placeholder="اكتبي اسمك">
+            </div>
+            <div class="field">
+              <label for="email">البريد الإلكتروني</label>
+              <input id="email" type="email" placeholder="name@example.com">
+            </div>
+            <div class="field">
+              <label for="phone">رقم الجوال</label>
+              <input id="phone" type="tel" placeholder="05xxxxxxxx" inputmode="tel">
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn primary" type="submit">حفظ التعديلات</button>
+            <button class="btn secondary" type="button" id="resetForm">إلغاء التعديلات</button>
+          </div>
+          <p class="notice" id="saveMessage" role="status"></p>
+        </form>
+      </section>
+
+      <section class="card" id="measurements">
+        <h2 class="section-heading">مقاساتي المحفوظة</h2>
+        <p class="hint">يمكنك الانتقال إلى دليل المقاسات لإدخال قياساتك. حفظها في الملف الشخصي يحتاج إلى ربط إضافي لاحقًا.</p>
+        <a class="btn primary" href="measurements.html">الانتقال إلى دليل المقاسات</a>
+      </section>
+
+      <section class="card" id="favorites">
+        <h2 class="section-heading">مفضلتي</h2>
+        <p class="hint">تظهر هنا العناصر المحفوظة من صفحات الأقسام والمنتجات. إزالة العنصر هنا تحدّث المفضلة المشتركة.</p>
+
+        <div class="favorite-group">
+          <h3>أقسام الملابس المفضلة</h3>
+          <div id="favoriteCategories" class="empty">جارٍ التحقق من المفضلة...</div>
+        </div>
+
+        <div class="favorite-group">
+          <h3>المنتجات المفضلة</h3>
+          <div id="favoriteProducts" class="empty">جارٍ التحقق من المفضلة...</div>
+        </div>
+
+        <div class="favorite-group">
+          <h3>المتاجر المفضلة</h3>
+          <div id="favoriteStores" class="empty">جارٍ التحقق من المفضلة...</div>
+        </div>
+      </section>
+
+      <section class="card" id="shortcuts">
+        <h2 class="section-heading">روابط سريعة</h2>
+        <p class="hint">انتقلي إلى أقسام قياسات بسهولة.</p>
+        <div class="quick-links">
+          <a class="quick-link" href="stores.html">
+            <strong>أقسام الملابس</strong>
+            <span>تصفحي الأقسام وأضيفي المفضلة.</span>
+          </a>
+          <a class="quick-link" href="products.html">
+            <strong>المنتجات والمتاجر</strong>
+            <span>استكشفي المنتجات والمتاجر التجريبية.</span>
+          </a>
+          <a class="quick-link" href="measurements.html">
+            <strong>دليل المقاسات</strong>
+            <span>ابدئي بإدخال قياساتك وتقدير مقاسك.</span>
+          </a>
+          <a class="quick-link" href="support.html">
+            <strong>الدعم والمساعدة</strong>
+            <span>انتقلي إلى صفحة الدعم.</span>
+          </a>
+        </div>
+        <div class="actions">
+          <button class="btn danger" id="clearData" type="button">مسح بيانات الملف الشخصي</button>
+        </div>
+        <p class="hint" style="margin-top:10px;margin-bottom:0">هذا الزر يمسح بيانات الحساب التجريبية فقط، ولا يحذف مفضلتك.</p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>قياسات | مقاسك يبدأ من هنا</footer>
+
+<script>
+const PROFILE_KEY = 'kiyasatProfile';
+const CATEGORY_KEY = 'kiyasatFavoriteCategories';
+const PRODUCT_KEY = 'kiyasatProductFavorites';
+const STORE_KEY = 'kiyasatStoreFavorites';
+
+const categoryData = {
+  tshirts:{name:'التيشيرتات',url:'products.html?category=tshirts'},
+  abayas:{name:'العبايات',url:'products.html?category=abayas'},
+  dresses:{name:'الفساتين',url:'products.html?category=dresses'},
+  jackets:{name:'الجاكيتات',url:'products.html?category=jackets'},
+  jeans:{name:'الجينز',url:'products.html?category=jeans'},
+  pullovers:{name:'البلاوفرات',url:'products.html?category=pullovers'}
+};
+
+const productData = {
+  p1:{name:'تيشيرت تجريبي',url:'products.html?category=tshirts'},
+  p2:{name:'عباية تجريبية',url:'products.html?category=abayas'},
+  p3:{name:'فستان تجريبي',url:'products.html?category=dresses'},
+  p4:{name:'جاكيت تجريبي',url:'products.html?category=jackets'},
+  p5:{name:'جينز تجريبي',url:'products.html?category=jeans'},
+  p6:{name:'بلوفر تجريبي',url:'products.html?category=pullovers'}
+};
+
+const storeData = {
+  store1:{name:'متجر تجريبي ١',url:'products.html?store=store1'},
+  store2:{name:'متجر تجريبي ٢',url:'products.html?store=store2'},
+  store3:{name:'متجر تجريبي ٣',url:'products.html?store=store3'}
+};
+
+const form = document.getElementById('profileForm');
+const fullName = document.getElementById('fullName');
+const email = document.getElementById('email');
+const phone = document.getElementById('phone');
+const avatar = document.getElementById('avatar');
+const saveMessage = document.getElementById('saveMessage');
+
+function readProfile(){
+  try{
+    return JSON.parse(localStorage.getItem(PROFILE_KEY)) || {fullName:'',email:'',phone:''};
+  }catch{
+    return {fullName:'',email:'',phone:''};
+  }
+}
+function renderProfile(){
+  const profile=readProfile();
+  fullName.value=profile.fullName||'';
+  email.value=profile.email||'';
+  phone.value=profile.phone||'';
+  avatar.textContent=(profile.fullName||'م').trim().charAt(0)||'م';
+}
+form.addEventListener('submit',event=>{
+  event.preventDefault();
+  const profile={
+    fullName:fullName.value.trim(),
+    email:email.value.trim(),
+    phone:phone.value.trim()
+  };
+  try{
+    localStorage.setItem(PROFILE_KEY,JSON.stringify(profile));
+    avatar.textContent=profile.fullName.charAt(0)||'م';
+    saveMessage.textContent='تم حفظ البيانات على هذا المتصفح.';
+  }catch{
+    saveMessage.textContent='تعذر الحفظ. تحققي من إعدادات المتصفح.';
+  }
+});
+document.getElementById('resetForm').addEventListener('click',()=>{
+  renderProfile();
+  saveMessage.textContent='';
+});
+
+function readList(key){
+  try{
+    const data=JSON.parse(localStorage.getItem(key)||'[]');
+    return Array.isArray(data)?data:[];
+  }catch{return []}
+}
+function writeList(key,data){
+  try{localStorage.setItem(key,JSON.stringify(data));}
+  catch{alert('تعذر تحديث المفضلة في هذا المتصفح.');}
+}
+
+function renderFavorites(containerId,key,dataMap,type,emptyMessage){
+  const container=document.getElementById(containerId);
+  const favorites=readList(key);
+  container.replaceChildren();
+
+  if(!favorites.length){
+    container.className='empty';
+    container.textContent=emptyMessage;
+    return;
+  }
+
+  container.className='favorite-list';
+
+  favorites.forEach(id=>{
+    const item=dataMap[id];
+    const row=document.createElement('div');
+    row.className='list-item';
+
+    const name=document.createElement('span');
+    name.className='item-name';
+    name.textContent=item ? item.name : 'عنصر محفوظ سابقًا: '+id;
+
+    const actions=document.createElement('div');
+    actions.className='item-actions';
+
+    const link=document.createElement('a');
+    link.href=item ? item.url : (
+      type==='category' ? 'stores.html' : 'products.html'
+    );
+    link.textContent='عرض';
+
+    const remove=document.createElement('button');
+    remove.type='button';
+    remove.className='remove';
+    remove.textContent='إزالة';
+    remove.setAttribute('aria-label','إزالة '+name.textContent+' من المفضلة');
+
+    remove.addEventListener('click',()=>{
+      const updated=readList(key).filter(savedId=>savedId!==id);
+      writeList(key,updated);
+      renderAllFavorites();
+    });
+
+    actions.append(link,remove);
+    row.append(name,actions);
+    container.appendChild(row);
+  });
+}
+
+function renderAllFavorites(){
+  renderFavorites(
+    'favoriteCategories',CATEGORY_KEY,categoryData,'category',
+    'لا توجد أقسام مفضلة محفوظة حتى الآن.'
+  );
+  renderFavorites(
+    'favoriteProducts',PRODUCT_KEY,productData,'product',
+    'لا توجد منتجات مفضلة محفوظة حتى الآن.'
+  );
+  renderFavorites(
+    'favoriteStores',STORE_KEY,storeData,'store',
+    'لا توجد متاجر مفضلة محفوظة حتى الآن.'
+  );
+}
+
+document.getElementById('clearData').addEventListener('click',()=>{
+  if(!confirm('هل تريدين مسح بيانات الملف الشخصي فقط؟'))return;
+  localStorage.removeItem(PROFILE_KEY);
+  renderProfile();
+  saveMessage.textContent='تم مسح بيانات الملف الشخصي التجريبية. بقيت المفضلة كما هي.';
+});
+
+renderProfile();
+renderAllFavorites();
+</script>
+</body>
+</html>

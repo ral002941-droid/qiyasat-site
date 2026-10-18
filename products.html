@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>المنتجات والمتاجر | قياسات</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:#FAF7F2;
+  --lavender:#E9DFF2;
+  --purple:#594477;
+  --dark:#30283A;
+  --muted:#81778B;
+  --white:#fff;
+  --border:#E8E0EB;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Cairo,sans-serif;background:var(--cream);color:var(--dark)}
+a{text-decoration:none;color:inherit}
+button,input,select{font:inherit}
+header{background:white;border-bottom:1px solid var(--border);padding:15px 6%;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-size:24px;font-weight:800;color:var(--purple)}
+nav{display:flex;gap:17px;flex-wrap:wrap;font-size:14px}
+nav a:hover{color:var(--purple)}
+main{width:min(1150px,92%);margin:32px auto 60px}
+.hero{background:var(--lavender);padding:26px;border-radius:22px;margin-bottom:24px}
+h1{margin:0 0 7px;color:var(--purple);font-size:clamp(23px,4vw,32px)}
+.hero p{margin:0;color:#665875;line-height:1.9}
+.notice{background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 15px;color:var(--muted);font-size:12px;line-height:1.9;margin-top:15px}
+.section-title{color:var(--purple);font-size:22px;margin:28px 0 14px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+input[type=search],select{padding:11px 13px;border:1px solid var(--border);border-radius:11px;background:white;min-width:160px;flex:1;outline-color:var(--purple)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+.tab{border:0;border-radius:10px;padding:9px 14px;background:var(--lavender);color:var(--purple);cursor:pointer;font-size:13px;font-weight:700}
+.tab.active{background:var(--purple);color:white}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.card{background:white;border:1px solid var(--border);border-radius:17px;padding:15px;min-width:0;overflow:hidden}
+.store-mark{height:105px;background:#F5F0F8;border-radius:13px;display:grid;place-items:center;font-size:27px;font-weight:800;color:var(--purple);margin-bottom:13px}
+.product-mark{height:260px;background:#F8F5F9;border-radius:13px;overflow:hidden;margin-bottom:13px}
+.product-mark img{width:100%;height:100%;object-fit:cover;display:block}
+.card h3{color:var(--purple);margin:0 0 6px;font-size:16px;line-height:1.8}
+.muted{font-size:12px;color:var(--muted);line-height:1.9}
+.card p{margin:5px 0}
+.card-actions{display:flex;gap:8px;align-items:center;margin-top:13px;flex-wrap:wrap}
+.btn{border:0;border-radius:10px;padding:9px 12px;cursor:pointer;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.primary{background:var(--purple);color:white}
+.secondary{background:var(--lavender);color:var(--purple)}
+.heart{border:1px solid var(--border);background:white;color:var(--purple);font-size:19px;min-width:40px}
+.heart.saved{background:var(--lavender)}
+.price{font-weight:800;color:var(--dark);margin-top:9px;font-size:17px}
+.badge{display:inline-block;background:var(--lavender);color:var(--purple);border-radius:8px;padding:4px 8px;font-size:11px}
+.empty{padding:22px;background:white;border:1px dashed #D8C9E2;border-radius:14px;color:var(--muted);text-align:center;grid-column:1/-1}
+footer{text-align:center;color:var(--muted);padding:24px;font-size:12px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:500px){
+  .grid{grid-template-columns:1fr}
+  header{padding:14px 4%}
+  nav{gap:11px}
+  .card{padding:15px}
+  .product-mark{height:320px}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="index.html">قياسات</a>
+  <nav aria-label="القائمة الرئيسية">
+    <a href="index.html">الرئيسية</a>
+    <a href="stores.html">الأقسام</a>
+    <a href="products.html">المنتجات</a>
+    <a href="measurements.html">دليل المقاسات</a>
+    <a href="profile.html">ملفي الشخصي</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>اكتشفي المنتجات والمتاجر</h1>
+    <p>تصفحي اختيارات من متاجر الأزياء، واطلعي على تفاصيل المنتجات وأسعارها، ثم انتقلي إلى المتجر للاطلاع على المعلومات المحدّثة.</p>
+    <div class="notice">
+      الأسعار والتوفر والمقاسات تتغير بحسب المتجر. قياسات دليل للوصول إلى المنتجات وليست بائعًا لها، ولا تمثل هذه الصفحة شراكة رسمية مع المتاجر.
+    </div>
+  </section>
+
+  <div class="tools">
+    <input id="search" type="search" placeholder="ابحثي عن منتج أو متجر..." aria-label="البحث">
+    <select id="sort" aria-label="ترتيب المنتجات">
+      <option value="default">الترتيب الافتراضي</option>
+      <option value="low">السعر: من الأقل للأعلى</option>
+      <option value="high">السعر: من الأعلى للأقل</option>
+      <option value="name">الاسم: أبجديًا</option>
+    </select>
+  </div>
+
+  <div id="categoryTabs" class="tabs"></div>
+
+  <h2 class="section-title">المتاجر</h2>
+  <section id="storesGrid" class="grid"></section>
+
+  <h2 class="section-title" id="productsHeading">المنتجات</h2>
+  <section id="productsGrid" class="grid"></section>
+</main>
+
+<footer>قياسات | مقاسك يبدأ من هنا</footer>
+
+<script>
+const PRODUCT_KEY = 'kiyasatProductFavorites';
+const STORE_KEY = 'kiyasatStoreFavorites';
+
+const categories = [
+  {id:'all',name:'كل الأقسام'},
+  {id:'abayas',name:'العبايات'},
+  {id:'dresses',name:'الفساتين'}
+];
+
+const stores = [
+  {
+    id:'shein',
+    name:'SHEIN | شي إن',
+    category:'abayas',
+    description:'متجر أزياء إلكتروني يضم الملابس والعبايات والإكسسوارات.',
+    url:'https://ar.shein.com/'
+  },
+  {
+    id:'styli',
+    name:'Styli | ستايلي',
+    category:'dresses',
+    description:'متجر أزياء إلكتروني يوفر خيارات من الملابس النسائية والرجالية.',
+    url:'https://stylishop.com/sa/en/list/women/clothing/dresses'
+  }
+];
+
+const products = [
+  {
+    id:'shein-1',
+    name:'عباية نسائية سوداء يومية',
+    storeId:'shein',
+    category:'abayas',
+    price:90,
+    priceLabel:'90 ر.س',
+    sizes:'مقاس واحد بحسب صفحة المنتج',
+    color:'أسود',
+    material:'بوليستر 100%',
+    fit:'واسع',
+    image:'https://img.ltwebstatic.com/images3_pi/2025/01/23/37/1737608053126f36112889dee0bd5e54cdbd981b72_thumbnail_750x999.jpg',
+    url:'https://ar.shein.com/goods-p-34618576.html'
+  },
+  {
+    id:'shein-2',
+    name:'عباية نسائية مزخرفة',
+    storeId:'shein',
+    category:'abayas',
+    price:101,
+    priceLabel:'101 ر.س',
+    sizes:'S، M، L، XL',
+    color:'أسود',
+    material:'بوليستر 100%',
+    fit:'واسع',
+    image:'https://img.ltwebstatic.com/images3_pi/2024/10/11/3c/1728643225e8b0f06a77d82f4bb9e35e8f8a9e17_thumbnail_750x999.jpg',
+    url:'https://ar.shein.com/goods-p-49905568.html'
+  },
+  {
+    id:'shein-3',
+    name:'عباية عربية بسيطة بأكمام طويلة',
+    storeId:'shein',
+    category:'abayas',
+    price:38,
+    priceLabel:'38 ر.س',
+    sizes:'S، M، L، XL',
+    color:'أسود',
+    material:'بوليستر 100%',
+    fit:'فضفاض',
+    image:'https://img.ltwebstatic.com/images3_pi/2024/01/17/17054895645a9f49a6a8e9b6c1a2d2f4b6f2d2c1_thumbnail_750x999.jpg',
+    url:'https://m.shein.com/ar-en/Women-Simple-Solid-Color-Long-Sleeve-Modest-Arabian-Abaya%2C-Robe-p-32257000.html'
+  },
+  {
+    id:'shein-4',
+    name:'عباية بتفاصيل متباينة وأكمام طويلة',
+    storeId:'shein',
+    category:'abayas',
+    price:65,
+    priceLabel:'65 ر.س',
+    sizes:'XS، S، M، L، XL',
+    color:'أسود',
+    material:'بوليستر 100%',
+    fit:'عادي',
+    image:'https://img.ltwebstatic.com/images3_pi/2021/11/01/1635750206f2fbd08cb32c4a3f9a98f8bde4c6d7_thumbnail_750x999.jpg',
+    url:'https://m.shein.com/ar-en/Contrast-Trim-Trumpet-Sleeve-Abaya-Without-Belt-p-6971917-cat-2743.html'
+  },
+  {
+    id:'styli-1',
+    name:'فستان ماكسي أسود بقصة A-Line',
+    storeId:'styli',
+    category:'dresses',
+    price:null,
+    priceLabel:'راجعي السعر الحالي في ستايلي',
+    sizes:'راجعي المقاسات المتاحة في صفحة المنتج',
+    color:'أسود',
+    material:'التفاصيل حسب صفحة المنتج',
+    fit:'قصة A-Line',
+    image:'https://images.stylishop.com/cdn-cgi/image/format%3Davif/media/catalog/product/7017486301/images/7017486301_3.jpg?v=1',
+    url:'https://stylishop.com/sa/en/product-styli-plain-sleeveless-a-line-maxi-dress-with-square-neck-7017486301'
+  }
+];
+
+const categoryNames = Object.fromEntries(categories.map(c=>[c.id,c.name]));
+const search = document.getElementById('search');
+const sort = document.getElementById('sort');
+const categoryTabs = document.getElementById('categoryTabs');
+const storesGrid = document.getElementById('storesGrid');
+const productsGrid = document.getElementById('productsGrid');
+const productsHeading = document.getElementById('productsHeading');
+
+const params = new URLSearchParams(location.search);
+let selectedCategory = categories.some(c=>c.id===params.get('category'))
+  ? (params.get('category') || 'all') : 'all';
+let selectedStore = params.get('store') || '';
+
+function readList(key){
+  try {
+    const data = JSON.parse(localStorage.getItem(key) || '[]');
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeList(key,data){
+  try {
+    localStorage.setItem(key,JSON.stringify(data));
+  } catch {
+    alert('تعذر الحفظ في هذا المتصفح.');
+  }
+}
+
+function toggleFavorite(key,id){
+  const current = readList(key);
+  writeList(key,current.includes(id)
+    ? current.filter(x=>x!==id)
+    : [...current,id]);
+}
+
+function makeHeart(key,id,label){
+  const saved = readList(key).includes(id);
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'btn heart' + (saved ? ' saved' : '');
+  button.textContent = saved ? '♥️' : '♡';
+  button.setAttribute('aria-label',(saved?'إزالة ':'إضافة ')+label+' للمفضلة');
+  button.setAttribute('aria-pressed',String(saved));
+  button.addEventListener('click',()=>{
+    toggleFavorite(key,id);
+    renderAll();
+  });
+  return button;
+}
+
+function makeButton(text,className,onClick){
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'btn '+className;
+  button.textContent = text;
+  button.addEventListener('click',onClick);
+  return button;
+}
+
+function makeLink(text,className,url){
+  const link = document.createElement('a');
+  link.className = 'btn '+className;
+  link.textContent = text;
+  link.href = url;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  return link;
+}
+
+function renderTabs(){
+  categoryTabs.replaceChildren();
+  categories.forEach(category=>{
+    const button = makeButton(
+      category.name,
+      'tab'+(selectedCategory===category.id?' active':''),
+      ()=>{
+        selectedCategory = category.id;
+        selectedStore = '';
+        renderAll();
+      }
+    );
+    categoryTabs.appendChild(button);
+  });
+}
+
+function renderStores(){
+  storesGrid.replaceChildren();
+  const query = search.value.trim().toLowerCase();
+
+  const visible = stores.filter(store=>
+    (selectedCategory==='all' || store.category===selectedCategory) &&
+    (!query || (store.name+' '+store.description+' '+categoryNames[store.category])
+      .toLowerCase().includes(query))
+  );
+
+  if(!visible.length){
+    const empty = document.createElement('div');
+    empty.className = 'empty';
+    empty.textContent = 'لا توجد متاجر مطابقة للبحث.';
+    storesGrid.appendChild(empty);
+    return;
+  }
+
+  visible.forEach(store=>{
+    const card = document.createElement('article');
+    card.className = 'card';
+
+    const mark = document.createElement('div');
+    mark.className = 'store-mark';
+    mark.textContent = store.name;
+
+    const title = document.createElement('h3');
+    title.textContent = store.name;
+
+    const badge = document.createElement('span');
+    badge.className = 'badge';
+    badge.textContent = categoryNames[store.category];
+
+    const description = document.createElement('p');
+    description.className = 'muted';
+    description.textContent = store.description;
+
+    const actions = document.createElement('div');
+    actions.className = 'card-actions';
+
+    const view = makeButton('عرض المنتجات','primary',()=>{
+      selectedStore = store.id;
+      selectedCategory = 'all';
+      renderAll();
+      productsHeading.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+
+    actions.append(view,makeLink('زيارة المتجر','secondary',store.url),
+      makeHeart(STORE_KEY,store.id,'المتجر'));
+
+    card.append(mark,title,badge,description,actions);
+    storesGrid.appendChild(card);
+  });
+}
+
+function renderProducts(){
+  productsGrid.replaceChildren();
+
+  let visible = products.filter(product=>
+    (selectedCategory==='all' || product.category===selectedCategory) &&
+    (!selectedStore || product.storeId===selectedStore) &&
+    (!search.value.trim() ||
+      (product.name+' '+(stores.find(s=>s.id===product.storeId)?.name || '')+
+      ' '+categoryNames[product.category]+' '+product.color)
+      .toLowerCase().includes(search.value.trim().toLowerCase()))
+  );
+
+  if(sort.value==='low') {
+    visible.sort((a,b)=>(a.price ?? Infinity)-(b.price ?? Infinity));
+  }
+  if(sort.value==='high') {
+    visible.sort((a,b)=>(b.price ?? -Infinity)-(a.price ?? -Infinity));
+  }
+  if(sort.value==='name') {
+    visible.sort((a,b)=>a.name.localeCompare(b.name,'ar'));
+  }
+
+  if(!visible.length){
+    const empty = document.createElement('div');
+    empty.className = 'empty';
+    empty.textContent = 'لا توجد منتجات مطابقة للاختيارات الحالية.';
+    productsGrid.appendChild(empty);
+    return;
+  }
+
+  visible.forEach(product=>{
+    const store = stores.find(s=>s.id===product.storeId);
+    const card = document.createElement('article');
+    card.className = 'card';
+
+    const mark = document.createElement('div');
+    mark.className = 'product-mark';
+
+    const img = document.createElement('img');
+    img.src = product.image;
+    img.alt = product.name;
+    img.loading = 'lazy';
+    img.onerror = ()=>{
+      mark.replaceChildren();
+      mark.textContent = 'تعذّر تحميل الصورة';
+      mark.style.display = 'grid';
+      mark.style.placeItems = 'center';
+      mark.style.color = '#81778B';
+      mark.style.fontSize = '13px';
+    };
+    mark.appendChild(img);
+
+    const title = document.createElement('h3');
+    title.textContent = product.name;
+
+    const category = document.createElement('span');
+    category.className = 'badge';
+    category.textContent = categoryNames[product.category];
+
+    const storeName = document.createElement('p');
+    storeName.className = 'muted';
+    storeName.textContent = 'المتجر: '+(store ? store.name : '');
+
+    const price = document.createElement('p');
+    price.className = 'price';
+    price.textContent = product.priceLabel;
+
+    const details = document.createElement('p');
+    details.className = 'muted';
+    details.textContent = 'اللون: '+product.color+' · '+product.material;
+
+    const sizes = document.createElement('p');
+    sizes.className = 'muted';
+    sizes.textContent = 'المقاسات: '+product.sizes;
+
+    const fit = document.createElement('p');
+    fit.className = 'muted';
+    fit.textContent = 'القصة: '+product.fit;
+
+    const actions = document.createElement('div');
+    actions.className = 'card-actions';
+    actions.append(
+      makeLink('تفاصيل المنتج','primary',product.url),
+      makeHeart(PRODUCT_KEY,product.id,'المنتج')
+    );
+
+    card.append(mark,title,category,storeName,price,details,sizes,fit,actions);
+    productsGrid.appendChild(card);
+  });
+}
+
+function renderAll(){
+  renderTabs();
+  renderStores();
+  renderProducts();
+
+  productsHeading.textContent = selectedStore
+    ? 'منتجات '+(stores.find(s=>s.id===selectedStore)?.name || 'المتجر المحدد')
+    : 'المنتجات';
+}
+
+search.addEventListener('input',renderAll);
+sort.addEventListener('change',renderProducts);
+renderAll();
+</script>
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل الدخول | قياسات</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #FAF7F2;
+  --lavender: #E9DFF2;
+  --purple: #594477;
+  --dark: #44325E;
+  --text: #342B3D;
+  --muted: #82788C;
+  --border: #E5DCEB;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input {
+  font: inherit;
+}
+
+.navbar {
+  min-height: 78px;
+  padding: 14px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--purple);
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.logo-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: var(--lavender);
+  border-radius: 14px;
+  font-size: 24px;
+}
+
+.back-link {
+  color: var(--purple);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 45px 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 490px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 38px 40px;
+  box-shadow: 0 14px 45px rgba(89,68,119,.09);
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.card-icon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 15px;
+  display: grid;
+  place-items: center;
+  background: var(--lavender);
+  color: var(--purple);
+  border-radius: 20px;
+  font-size: 30px;
+}
+
+.card-header h1 {
+  color: var(--purple);
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.card-header p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 7px;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 5px;
+  border-radius: 13px;
+  background: var(--cream);
+  margin-bottom: 25px;
+}
+
+.tab {
+  border: none;
+  border-radius: 10px;
+  padding: 11px 8px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.tab.active {
+  background: var(--purple);
+  color: white;
+  box-shadow: 0 3px 9px rgba(89,68,119,.15);
+}
+
+.field {
+  margin-bottom: 19px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.field input {
+  width: 100%;
+  height: 50px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #FFFEFD;
+  outline: none;
+  color: var(--text);
+  font-size: 13px;
+  transition: .2s;
+}
+
+.field input:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(89,68,119,.08);
+}
+
+.field input::placeholder {
+  color: #B0A6B7;
+}
+
+.input-wrap input {
+  padding-left: 65px;
+}
+
+.toggle-password {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: var(--purple);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 2px 0 22px;
+  font-size: 12px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.remember input {
+  accent-color: var(--purple);
+  width: 15px;
+  height: 15px;
+}
+
+.text-link {
+  border: none;
+  background: transparent;
+  color: var(--purple);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.submit-btn {
+  width: 100%;
+  min-height: 51px;
+  border: none;
+  border-radius: 12px;
+  background: var(--purple);
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.submit-btn:hover {
+  background: var(--dark);
+  transform: translateY(-1px);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 23px 0 17px;
+  color: #A59AAA;
+  font-size: 11px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.account-note {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.account-note button {
+  border: none;
+  background: transparent;
+  color: var(--purple);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.terms {
+  margin-top: 23px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 2;
+}
+
+.terms a {
+  color: var(--purple);
+  font-weight: 700;
+}
+
+.message {
+  display: none;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--cream);
+  color: var(--dark);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+footer {
+  padding: 18px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  background: #fff;
+  border-top: 1px solid var(--border);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 520px) {
+  .navbar {
+    min-height: 68px;
+    padding: 12px 5%;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .logo-icon {
+    width: 39px;
+    height: 39px;
+  }
+
+  main {
+    padding: 28px 15px;
+  }
+
+  .login-card {
+    padding: 28px 22px;
+    border-radius: 20px;
+  }
+
+  .card-header h1 {
+    font-size: 24px;
+  }
+
+  .card-icon {
+    width: 58px;
+    height: 58px;
+  }
+
+  .back-link {
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <a class="logo" href="index.html">
+
+    <span>قياسات</span>
+  </a>
+  <a class="back-link" href="index.html">العودة للرئيسية ←</a>
+</header>
+
+<main>
+  <section class="login-card">
+
+    <div class="card-header">
+      <div class="card-icon">♙</div>
+      <h1 id="formTitle">تسجيل الدخول</h1>
+      <p id="formSubtitle">أدخلي بيانات حسابك للمتابعة</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" id="loginTab" type="button">
+        تسجيل الدخول
+      </button>
+      <button class="tab" id="registerTab" type="button">
+        إنشاء حساب
+      </button>
+    </div>
+
+    <form id="accountForm">
+
+      <div class="field" id="nameField" hidden>
+        <label for="fullName">الاسم الكامل</label>
+        <input id="fullName" type="text"
+          placeholder="أدخلي اسمك الكامل" autocomplete="name">
+      </div>
+
+      <div class="field">
+        <label for="email">البريد الإلكتروني</label>
+        <input id="email" type="email" required
+          placeholder="name@example.com" autocomplete="email">
+      </div>
+
+      <div class="field">
+        <label for="password">كلمة المرور</label>
+        <div class="input-wrap">
+          <input id="password" type="password" required
+            minlength="8" placeholder="أدخلي كلمة المرور"
+            autocomplete="current-password">
+          <button class="toggle-password" type="button"
+            data-target="password">إظهار</button>
+        </div>
+      </div>
+
+      <div class="field" id="confirmField" hidden>
+        <label for="confirmPassword">تأكيد كلمة المرور</label>
+        <div class="input-wrap">
+          <input id="confirmPassword" type="password"
+            minlength="8" placeholder="أعيدي كتابة كلمة المرور"
+            autocomplete="new-password">
+          <button class="toggle-password" type="button"
+            data-target="confirmPassword">إظهار</button>
+        </div>
+      </div>
+
+      <div class="form-options" id="loginOptions">
+        <label class="remember">
+          <input type="checkbox" id="rememberMe">
+          تذكريني
+        </label>
+        <button class="text-link" id="forgotPassword" type="button">
+          نسيت كلمة المرور؟
+        </button>
+      </div>
+
+      <button class="submit-btn" id="submitBtn" type="submit">
+        تسجيل الدخول
+      </button>
+
+      <div class="message" id="message" role="status"
+        aria-live="polite"></div>
+    </form>
+
+    <div class="divider">أو</div>
+
+    <p class="account-note" id="switchText">
+      ليس لديك حساب؟
+      <button type="button" id="switchBtn">إنشاء حساب جديد</button>
+    </p>
+
+    <p class="terms">
+      بمتابعتك، فإنك توافقين على
+      <a href="terms.html">الشروط والأحكام</a>
+      و<a href="privacy.html">سياسة الخصوصية</a>.
+    </p>
+
+  </section>
+</main>
+
+<footer>©️ 2026 قياسات — جميع الحقوق محفوظة</footer>
+
+<script>
+const form = document.getElementById('accountForm');
+const message = document.getElementById('message');
+const password = document.getElementById('password');
+const confirmPassword = document.getElementById('confirmPassword');
+const fullName = document.getElementById('fullName');
+
+let mode = 'login';
+
+function setMode(newMode) {
+  mode = newMode;
+  const registering = mode === 'register';
+
+  document.getElementById('loginTab').classList.toggle('active', !registering);
+  document.getElementById('registerTab').classList.toggle('active', registering);
+
+  document.getElementById('nameField').hidden = !registering;
+  document.getElementById('confirmField').hidden = !registering;
+  document.getElementById('loginOptions').hidden = registering;
+
+  fullName.required = registering;
+  confirmPassword.required = registering;
+  password.autocomplete = registering ? 'new-password' : 'current-password';
+
+  document.getElementById('formTitle').textContent =
+    registering ? 'إنشاء حساب جديد' : 'تسجيل الدخول';
+
+  document.getElementById('formSubtitle').textContent =
+    registering ? 'أدخلي بياناتك لإنشاء حسابك' : 'أدخلي بيانات حسابك للمتابعة';
+
+  document.getElementById('submitBtn').textContent =
+    registering ? 'إنشاء الحساب' : 'تسجيل الدخول';
+
+  document.getElementById('switchText').firstChild.textContent =
+    registering ? 'لديك حساب بالفعل؟ ' : 'ليس لديك حساب؟ ';
+
+  document.getElementById('switchBtn').textContent =
+    registering ? 'تسجيل الدخول' : 'إنشاء حساب جديد';
+
+  message.style.display = 'none';
+  form.reset();
+}
+
+document.getElementById('loginTab').onclick = () => setMode('login');
+document.getElementById('registerTab').onclick = () => setMode('register');
+document.getElementById('switchBtn').onclick = () =>
+  setMode(mode === 'login' ? 'register' : 'login');
+
+document.querySelectorAll('[data-target]').forEach(button => {
+  button.onclick = () => {
+    const input = document.getElementById(button.dataset.target);
+    input.type = input.type === 'password' ? 'text' : 'password';
+    button.textContent = input.type === 'password' ? 'إظهار' : 'إخفاء';
+  };
+});
+
+document.getElementById('forgotPassword').onclick = () => {
+  message.textContent = 'استعادة كلمة المرور تتطلب ربط خدمة الحسابات.';
+  message.style.display = 'block';
+};
+
+form.addEventListener('submit', event => {
+  event.preventDefault();
+
+  if (!form.reportValidity()) return;
+
+  if (mode === 'register' &&
+      password.value !== confirmPassword.value) {
+    message.textContent = 'كلمتا المرور غير متطابقتين.';
+    message.style.display = 'block';
+    return;
+  }
+
+  // انتقال تجريبي؛ التحقق الحقيقي يحتاج خدمة حسابات آمنة.
+  window.location.href = 'stores.html';
+});
+</script>
+
+</body>
+</html>

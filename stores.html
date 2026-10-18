@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أقسام الملابس | قياسات</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #FAF7F2;
+  --lavender: #E9DFF2;
+  --purple: #594477;
+  --dark: #44325E;
+  --text: #342B3D;
+  --muted: #82788C;
+  --border: #E5DCEB;
+  --white: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input {
+  font: inherit;
+}
+
+header {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  color: var(--purple);
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--purple);
+}
+
+.profile {
+  border: 0;
+  background: var(--lavender);
+  color: var(--purple);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 35px 24px 60px;
+}
+
+.page-heading {
+  margin-bottom: 25px;
+}
+
+.page-heading h1 {
+  font-size: 30px;
+  color: var(--purple);
+  font-weight: 800;
+}
+
+.page-heading p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.search-area {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.search-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 0 15px;
+  height: 52px;
+}
+
+.search-box span {
+  font-size: 20px;
+  color: var(--purple);
+}
+
+.search-box input {
+  border: 0;
+  outline: none;
+  width: 100%;
+  font-size: 13px;
+  background: transparent;
+}
+
+.search-box input::placeholder {
+  color: #B0A6B7;
+}
+
+.fav-button {
+  height: 52px;
+  padding: 0 18px;
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 13px;
+  color: var(--purple);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.fav-button.active {
+  background: var(--lavender);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  font-size: 21px;
+  color: var(--dark);
+}
+
+.section-heading span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.category-card {
+  display: block;
+  text-align: right;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 19px;
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px #59447712;
+}
+
+.category-card[hidden] {
+  display: none;
+}
+
+.category-cover {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  background: var(--lavender);
+}
+
+.category-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--purple);
+  background: var(--lavender);
+  font-size: 13px;
+}
+
+.image-placeholder .image-icon {
+  font-size: 32px;
+}
+
+.category-info {
+  padding: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.category-info h3 {
+  font-size: 17px;
+  color: var(--dark);
+}
+
+.category-info span {
+  color: var(--purple);
+  font-size: 20px;
+}
+
+.category-heart {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: white;
+  color: var(--purple);
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.category-heart[aria-pressed="true"] {
+  background: var(--lavender);
+}
+
+.empty {
+  display: none;
+  text-align: center;
+  padding: 45px 15px;
+  color: var(--muted);
+  background: white;
+  border-radius: 15px;
+  border: 1px solid var(--border);
+  grid-column: 1 / -1;
+}
+
+.empty div {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+footer {
+  padding: 23px;
+  text-align: center;
+  background: white;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 850px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .category-cover {
+    height: 190px;
+  }
+}
+
+@media (max-width: 580px) {
+  header {
+    padding: 12px 5%;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  main {
+    padding: 27px 15px 40px;
+  }
+
+  .page-heading h1 {
+    font-size: 26px;
+  }
+
+  .fav-button {
+    padding: 0 11px;
+    font-size: 12px;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .category-cover {
+    height: 145px;
+  }
+
+  .category-info {
+    padding: 12px;
+  }
+
+  .category-info h3 {
+    font-size: 14px;
+  }
+
+  .section-heading h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-cover {
+    height: 200px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="index.html">قياسات</a>
+
+  <nav class="nav-links">
+    <a href="stores.html" class="active">الأقسام</a>
+    <a href="measurements.html">قياساتي</a>
+    <a href="guide.html">الفيديوالتعريفي</a>
+  </nav>
+
+  <button class="profile" aria-label="الملف الشخصي"
+    onclick="location.href='profile.html'">♙</button>
+</header>
+
+<main>
+  <section class="page-heading">
+    <h1>تصفّحي أقسام الملابس</h1>
+    <p>اختاري القسم اللي تبحثين عنه، واكتشفي المتاجر المناسبة لمقاساتك.</p>
+  </section>
+
+  <div class="search-area">
+    <label class="search-box">
+      <span>⌕</span>
+      <input id="searchInput" type="search"
+        placeholder="ابحثي عن قسم الملابس..."
+        aria-label="البحث عن قسم">
+    </label>
+
+    <button class="fav-button" id="favoritesFilter"
+      aria-pressed="false">♡ المفضلة</button>
+  </div>
+
+  <div class="section-heading">
+    <h2 id="sectionTitle">أقسام الملابس</h2>
+    <span id="categoryCount">٦ أقسام</span>
+  </div>
+
+  <section class="categories-grid" id="categoriesGrid">
+
+    <a class="category-card" href="products.html?category=tshirts"
+      data-id="tshirts" data-name="تيشيرتات">
+      <div class="category-cover">
+        <img src="tshirts.jpg" alt="تيشيرتات"
+          onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+        <div class="image-placeholder" hidden>
+          <span class="image-icon">＋</span>
+          <span>ضعي صورة التيشيرتات هنا</span>
+        </div>
+      </div>
+      <div class="category-info">
+        <h3>تيشيرتات</h3><span>←</span>
+      </div>
+    </a>
+
+    <a class="category-card" href="products.html?category=abayas"
+      data-id="abayas" data-name="عبايات">
+      <div class="category-cover">
+        <img src="abayas.jpg" alt="عبايات"
+          onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+        <div class="image-placeholder" hidden>
+          <span class="image-icon">＋</span>
+          <span>ضعي صورة العبايات هنا</span>
+        </div>
+      </div>
+      <div class="category-info">
+        <h3>عبايات</h3><span>←</span>
+      </div>
+    </a>
+
+    <a class="category-card" href="products.html?category=dresses"
+      data-id="dresses" data-name="فساتين">
+      <div class="category-cover">
+        <img src="dresses.jpg" alt="فساتين"
+          onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+        <div class="image-placeholder" hidden>
+          <span class="image-icon">＋</span>
+          <span>ضعي صورة الفساتين هنا</span>
+        </div>
+      </div>
+      <div class="category-info">
+        <h3>فساتين</h3><span>←</span>
+      </div>
+    </a>
+
+    <a class="category-card" href="products.html?category=jackets"
+      data-id="jackets" data-name="جاكيتات">
+      <div class="category-cover">
+        <img src="jackets.jpg" alt="جاكيتات"
+          onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+        <div class="image-placeholder" hidden>
+          <span class="image-icon">＋</span>
+          <span>ضعي صورة الجاكيتات هنا</span>
+        </div>
+      </div>
+      <div class="category-info">
+        <h3>جاكيتات</h3><span>←</span>
+      </div>
+    </a>
+
+    <a class="category-card" href="products.html?category=jeans"
+      data-id="jeans" data-name="جينزات">
+      <div class="category-cover">
+        <img src="jeans.jpg" alt="جينزات"
+          onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+        <div class="image-placeholder" hidden>
+          <span class="image-icon">＋</span>
+          <span>ضعي صورة الجينزات هنا</span>
+        </div>
+      </div>
+      <div class="category-info">
+        <h3>جينزات</h3><span>←</span>
+      </div>
+    </a>
+
+    <a class="category-card" href="products.html?category=pullovers"
+      data-id="pullovers" data-name="بلوفرات">
+      <div class="category-cover">
+        <img src="pullovers.jpg" alt="بلوفرات"
+          onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+        <div class="image-placeholder" hidden>
+          <span class="image-icon">＋</span>
+          <span>ضعي صورة البلوفرات هنا</span>
+        </div>
+      </div>
+      <div class="category-info">
+        <h3>بلوفرات</h3><span>←</span>
+      </div>
+    </a>
+
+    <div class="empty" id="emptyState">
+      <div>⌕</div>
+      <p>ما لقينا قسمًا مطابقًا لبحثك.</p>
+    </div>
+
+  </section>
+</main>
+
+<footer>©️ 2026 قياسات — جميع الحقوق محفوظة</footer>
+
+<script>
+let favoritesOnly = false;
+
+const cards = [
+  ...document.querySelectorAll('.category-card')
+];
+
+const searchInput = document.getElementById('searchInput');
+const favoritesFilter = document.getElementById('favoritesFilter');
+const emptyState = document.getElementById('emptyState');
+const categoryCount = document.getElementById('categoryCount');
+const sectionTitle = document.getElementById('sectionTitle');
+
+const FAVORITES_KEY = 'kiyasatFavoriteCategories';
+
+function getFavorites() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
+    return Array.isArray(stored) ? stored : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveFavorites(ids) {
+  try {
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify(ids));
+    return true;
+  } catch {
+    alert('تعذر حفظ المفضلة في هذا المتصفح.');
+    return false;
+  }
+}
+
+function updateCards() {
+  const query = searchInput.value.trim().toLowerCase();
+  const favorites = getFavorites();
+  let count = 0;
+
+  cards.forEach(card => {
+    const id = card.dataset.id;
+    const name = card.dataset.name.toLowerCase();
+    const matchesName = name.includes(query);
+    const matchesFavorite = !favoritesOnly || favorites.includes(id);
+    const visible = matchesName && matchesFavorite;
+
+    card.hidden = !visible;
+
+    if (visible) count++;
+
+    const cover = card.querySelector('.category-cover');
+    let heart = card.querySelector('.category-heart');
+
+    if (!heart) {
+      heart = document.createElement('button');
+      heart.type = 'button';
+      heart.className = 'category-heart';
+
+      heart.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const current = getFavorites();
+        const index = current.indexOf(id);
+
+        if (index >= 0) {
+          current.splice(index, 1);
+        } else {
+          current.push(id);
+        }
+
+        if (saveFavorites(current)) {
+          updateCards();
+        }
+      });
+
+      cover.appendChild(heart);
+    }
+
+    const saved = favorites.includes(id);
+
+    heart.textContent = saved ? '♥️' : '♡';
+    heart.setAttribute(
+      'aria-label',
+      saved ? 'إزالة القسم من المفضلة' : 'إضافة القسم إلى المفضلة'
+    );
+    heart.setAttribute('aria-pressed', String(saved));
+    heart.title = saved ? 'إزالة من المفضلة' : 'إضافة إلى المفضلة';
+  });
+
+  categoryCount.textContent =
+    count.toLocaleString('ar-SA') + ' أقسام';
+
+  emptyState.style.display = count === 0 ? 'block' : 'none';
+
+  sectionTitle.textContent =
+    favoritesOnly ? 'أقسامك المفضلة' : 'أقسام الملابس';
+
+  favoritesFilter.classList.toggle('active', favoritesOnly);
+  favoritesFilter.setAttribute('aria-pressed', String(favoritesOnly));
+  favoritesFilter.textContent =
+    favoritesOnly ? '♥️ عرض الكل' : '♡ المفضلة';
+}
+
+searchInput.addEventListener('input', updateCards);
+
+favoritesFilter.addEventListener('click', () => {
+  favoritesOnly = !favoritesOnly;
+  updateCards();
+});
+
+updateCards();
+</script>
+
+</body>
+</html>

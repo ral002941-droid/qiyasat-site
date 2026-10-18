@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الدعم والتواصل | قياسات</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cream: #FAF7F2;
+            --lavender: #E9DFF2;
+            --purple: #594477;
+            --dark: #382D43;
+            --muted: #716878;
+            --white: #FFFFFF;
+            --border: #E5DCEB;
+            --success: #397653;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Cairo", Tahoma, sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.9;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* الشريط العلوي */
+
+        header {
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar {
+            width: min(1200px, 92%);
+            min-height: 88px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .brand img {
+            width: 54px;
+            height: 54px;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            color: var(--purple);
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 19px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            font-size: 13px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--purple);
+        }
+
+        .nav-links a.active {
+            font-weight: 800;
+        }
+
+        .nav-cta {
+            background: var(--purple);
+            color: var(--white) !important;
+            padding: 9px 18px;
+            border-radius: 25px;
+        }
+
+        .nav-cta:hover {
+            background: #46345F;
+        }
+
+        /* العنوان الرئيسي */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 75px 20px 85px;
+            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(250, 247, 242, 0.97),
+                    rgba(233, 223, 242, 0.94)
+                ),
+                url("background.jpg") center / cover no-repeat;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.28);
+            top: -90px;
+            right: 8%;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 760px;
+            margin: auto;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.75);
+            color: var(--purple);
+            padding: 5px 17px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 5vw, 43px);
+            line-height: 1.5;
+            color: var(--purple);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 610px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        /* التنقل داخل الصفحة */
+
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .quick-links a {
+            display: inline-block;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 9px 19px;
+            color: var(--purple);
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .quick-links a:hover {
+            background: var(--purple);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* تنسيق الأقسام */
+
+        .container {
+            width: min(1050px, 90%);
+            margin: auto;
+        }
+
+        .section {
+            padding: 65px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            color: var(--purple);
+            font-size: clamp(24px, 4vw, 31px);
+            margin-bottom: 9px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .heading-line {
+            display: block;
+            width: 55px;
+            height: 4px;
+            background: var(--purple);
+            border-radius: 10px;
+            margin: 13px auto 0;
+        }
+
+        /* الأسئلة الشائعة */
+
+        .faq-list {
+            max-width: 850px;
+            margin: auto;
+            display: grid;
+            gap: 13px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+
+        .faq-item[open] {
+            box-shadow: 0 7px 22px rgba(89, 68, 119, 0.07);
+        }
+
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 19px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            color: var(--dark);
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 29px;
+            height: 29px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--lavender);
+            color: var(--purple);
+            font-size: 21px;
+            line-height: 1;
+        }
+
+        .faq-item[open] summary::after {
+            content: "−";
+        }
+
+        .faq-answer {
+            padding: 0 22px 20px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* منطقة التواصل */
+
+        .contact-section {
+            background: #F1EAF5;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.35fr;
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        .contact-info {
+            background: var(--purple);
+            color: var(--white);
+            padding: 30px 25px;
+            border-radius: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info > p {
+            color: #E8E0F0;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .info-item {
+            padding: 17px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.19);
+        }
+
+        .info-item h4 {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .info-item p {
+            color: #E8E0F0;
+            font-size: 13px;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .contact-form h3 {
+            color: var(--purple);
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        .form-description {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 23px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            display: block;
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #FDFCFE;
+            color: var(--dark);
+            outline: none;
+            font-size: 13px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--purple);
+            box-shadow: 0 0 0 3px rgba(89, 68, 119, 0.09);
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #A49BAA;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            background: var(--purple);
+            color: var(--white);
+            padding: 13px 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: #46345F;
+            transform: translateY(-1px);
+        }
+
+        .form-note {
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 13px;
+            text-align: center;
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 17px;
+            padding: 13px;
+            background: #EEF7F0;
+            border: 1px solid #C9E5D0;
+            color: var(--success);
+            border-radius: 10px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* الفوتر */
+
+        footer {
+            background: #30253B;
+            color: var(--white);
+            padding: 35px 20px 20px;
+        }
+
+        .footer-content {
+            width: min(1100px, 92%);
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-brand {
+            font-size: 23px;
+            font-weight: 800;
+            color: #E9DFF2;
+        }
+
+        .footer-description {
+            font-size: 12px;
+            color: #D5CADF;
+            margin-top: 4px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-links a {
+            color: #E8E0F0;
+            font-size: 12px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            width: min(1100px, 92%);
+            margin: 25px auto 0;
+            padding-top: 17px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            color: #C9BD D2;
+            color: #C9BDD2;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        /* الشاشات الصغيرة */
+
+        @media (max-width: 900px) {
+            .navbar {
+                padding: 15px 0;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 10px 16px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                order: 2;
+            }
+
+            .contact-form {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 55px 18px 60px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .section {
+                padding: 45px 0;
+            }
+
+            .nav-links {
+                gap: 8px 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .brand img {
+                width: 46px;
+                height: 46px;
+            }
+
+            .brand-name {
+                font-size: 22px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .contact-form,
+            .contact-info {
+                padding: 23px 18px;
+            }
+
+            .faq-item summary {
+                padding: 16px;
+                font-size: 13px;
+            }
+
+            .faq-answer {
+                padding: 0 16px 17px;
+                font-size: 13px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-links {
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- القائمة العلوية -->
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html" class="brand" aria-label="العودة إلى الصفحة الرئيسية">
+                <img src="Untitled design.PNG" alt="شعار قياسات">
+            
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="measurements.html" class="nav-cta">ابدئي الآن</a>
+                <a href="guide.html">الفيديوالتعريفي</a>
+                <a href="support.html" class="active" aria-current="page">الدعم والتواصل</a>
+                <a href="login.html">تسجيل الدخول</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- مقدمة الصفحة -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="eyebrow">نحن هنا لمساعدتك</span>
+
+            <h1>الدعم والتواصل</h1>
+
+      
+            <div class="quick-links">
+                <a href="#faq">الأسئلة الشائعة</a>
+                <a href="#contact">تواصلي معنا</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- الأسئلة الشائعة -->
+    <section class="section" id="faq">
+
+        <div class="container">
+
+            <div class="section-heading">
+                <h2>الأسئلة الشائعة</h2>
+                <p>إجابات عن أكثر الأسئلة المتعلقة باستخدام قياسات.</p>
+                <span class="heading-line"></span>
+            </div>
+
+            <div class="faq-list">
+
+                <details class="faq-item">
+                    <summary>كيف أستطيع معرفة مقاسي من خلال قياسات؟</summary>
+                    <div class="faq-answer">
+                        انتقلي إلى صفحة «ابدئي الآن»، ثم اختاري نوع الملابس
+                        وأدخلي القياسات المطلوبة بالسنتيمتر. سيعرض الموقع
+                        مقاسًا تقديريًا بناءً على البيانات المدخلة.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>ما وحدة القياس المستخدمة في الموقع؟</summary>
+                    <div class="faq-answer">
+                        تُدخل قياسات الجسم بالسنتيمتر (cm).
+                        احرصي على استخدام وحدة القياس نفسها عند إدخال جميع البيانات.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>هل المقاس الذي يظهر لي مضمون ودقيق دائمًا؟</summary>
+                    <div class="faq-answer">
+                        النتيجة تقديرية وليست ضمانًا للمقاس المناسب في جميع الحالات.
+                        فقد تختلف المقاسات بين العلامات التجارية وقصّات الملابس،
+                        لذلك يُفضّل مراجعة جدول المقاسات الخاص بالمتجر قبل الشراء.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>ماذا أفعل إذا لم أعرف طريقة أخذ قياساتي؟</summary>
+                    <div class="faq-answer">
+                        يمكنكِ الرجوع إلى صفحة «دليل المستخدم» للاطلاع على
+                        خطوات استخدام الموقع، مع الاستعانة بشريط قياس مرن
+                        وأخذ القياسات بطريقة صحيحة.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>هل أستطيع التواصل مع فريق قياسات إذا واجهت مشكلة؟</summary>
+                    <div class="faq-answer">
+                        نعم، يمكنكِ كتابة استفسارك في نموذج التواصل الموجود
+                        في هذه الصفحة. في النسخة التجريبية الحالية، النموذج
+                        للعرض فقط ولا يرسل الرسائل فعليًا حتى يتم ربطه بخدمة إرسال.
+                    </div>
+                </details>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- التواصل -->
+    <section class="section contact-section" id="contact">
+
+        <div class="container">
+
+            <div class="section-heading">
+                <h2>تواصلي معنا</h2>
+                <p>اكتبي استفسارك أو ملاحظاتك حول تجربة استخدام قياسات.</p>
+                <span class="heading-line"></span>
+            </div>
+
+            <div class="contact-grid">
+
+                <!-- معلومات التواصل -->
+                <aside class="contact-info">
+
+                    <h3>يسعدنا تواصلك</h3>
+
+                    <p>
+                        رأيكِ وملاحظاتك تساعدنا على تطوير قياسات
+                        وتحسين تجربة المستخدم.
+                    </p>
+
+                    <div class="info-item">
+                        <h4>✉️ البريد الإلكتروني</h4>
+                        <p>سيُضاف البريد الرسمي للمشروع بعد اعتماده.</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h4>💬 الاستفسارات والدعم</h4>
+                        <p>
+                            يمكنكِ كتابة سؤالك أو وصف المشكلة
+                            من خلال نموذج التواصل في هذه الصفحة.
+                        </p>
+                    </div>
+
+                    <div class="info-item">
+                        <h4>🕒 أوقات الرد</h4>
+                        <p>
+                            سيتم تحديد أوقات استقبال الاستفسارات
+                            والرد عليها عند إطلاق الخدمة.
+                        </p>
+                    </div>
+
+                </aside>
+
+
+                <!-- نموذج التواصل -->
+                <form class="contact-form" id="contactForm">
+
+                    <h3>أرسلي استفسارك</h3>
+
+                    <p class="form-description">
+                        فضلاً، املئي الحقول التالية.
+                    </p>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="اكتبي اسمك"
+                                autocomplete="name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="example@email.com"
+                                autocomplete="email"
+                                required
+                                dir="ltr"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">نوع الاستفسار</label>
+
+                        <select id="subject" name="subject" required>
+                            <option value="" selected disabled>
+                                اختاري نوع الاستفسار
+                            </option>
+                            <option value="استخدام الموقع">طريقة استخدام الموقع</option>
+                            <option value="المقاسات">القياسات والمقاسات</option>
+                            <option value="مشكلة تقنية">مشكلة تقنية</option>
+                            <option value="اقتراح">اقتراح أو ملاحظة</option>
+                            <option value="أخرى">استفسار آخر</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">تفاصيل الرسالة</label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="اكتبي استفسارك هنا بالتفصيل..."
+                            required
+                            minlength="5"
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        إرسال الاستفسار
+                    </button>
+
+            
+
+                    <div
+                        class="success-message"
+                        id="successMessage"
+                        role="status"
+                        aria-live="polite"
+                    >
+                        تم التحقق من بيانات النموذج بنجاح.
+                        هذه رسالة تجريبية فقط، ولم تُرسل رسالتك فعليًا.
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- أسفل الصفحة -->
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                <div class="footer-brand">قياسات</div>
+                <p class="footer-description">
+                    تجربة تسوق أكثر سهولة.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="measurements.html">ابدئي الآن</a>
+                <a href="guide.html">الفيديوالتعريفي</a>
+                <a href="support.html">الدعم والتواصل</a>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            جميع الحقوق محفوظة لمشروع قياسات ©️ 2026
+        </div>
+
+    </footer>
+
+
+    <script>
+        const contactForm = document.getElementById("contactForm");
+        const successMessage = document.getElementById("successMessage");
+
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
+            successMessage.style.display = "block";
+
+            successMessage.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest"
+            });
+        });
+
+        contactForm.addEventListener("input", function () {
+            successMessage.style.display = "none";
+        });
+
+        contactForm.addEventListener("change", function () {
+            successMessage.style.display = "none";
+        });
+    </script>
+
+</body>
+</html>
