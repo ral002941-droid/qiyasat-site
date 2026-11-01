@@ -4,431 +4,300 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>المنتجات | قياسات</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --cream: #FAF7F2;
-  --lavender: #E9DFF2;
-  --purple: #594477;
-  --dark: #382D43;
-  --muted: #776D7E;
-  --white: #FFFFFF;
-  --border: #E2D7EA;
+  --cream:#FAF7F2;
+  --lavender:#E9DFF2;
+  --purple:#594477;
+  --dark:#382D43;
+  --muted:#776D7E;
+  --border:#E2D7EA;
 }
-
-* { box-sizing: border-box; }
-
+* { box-sizing:border-box; }
 body {
-  margin: 0;
-  font-family: Cairo, sans-serif;
-  background: var(--cream);
-  color: var(--dark);
+  margin:0;
+  font-family:Cairo,sans-serif;
+  background:var(--cream);
+  color:var(--dark);
 }
-
-a { text-decoration: none; color: inherit; }
-button, input, select { font: inherit; }
-
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible,
+a { text-decoration:none; color:inherit; }
+button,input,select { font:inherit; }
+button { cursor:pointer; }
+button:focus-visible,a:focus-visible,
+input:focus-visible,select:focus-visible,
 summary:focus-visible {
-  outline: 3px solid var(--purple);
-  outline-offset: 3px;
+  outline:3px solid var(--purple);
+  outline-offset:3px;
 }
-
 header {
-  background: white;
-  padding: 18px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  box-shadow: 0 2px 15px #59447712;
+  background:white;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
+  box-shadow:0 2px 15px #59447712;
 }
-
 .logo {
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--purple);
+  font-size:26px;
+  font-weight:800;
+  color:var(--purple);
 }
-
-nav {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-nav a { font-size: 14px; }
-nav a:hover { color: var(--purple); }
-
-main {
-  width: min(1200px, 92%);
-  margin: 35px auto;
-}
-
+nav { display:flex;gap:18px;flex-wrap:wrap; }
+nav a { font-size:14px; }
+nav a:hover { color:var(--purple); }
+main { width:min(1200px,92%);margin:35px auto; }
 .hero {
-  background: var(--lavender);
-  padding: 30px;
-  border-radius: 20px;
-  margin-bottom: 25px;
+  background:var(--lavender);
+  padding:30px;
+  border-radius:20px;
+  margin-bottom:25px;
 }
-
-.hero h1 {
-  color: var(--purple);
-  margin: 0 0 8px;
-}
-
-.hero p {
-  margin: 0;
-  line-height: 1.9;
-}
-
+.hero h1 { color:var(--purple);margin:0 0 8px; }
+.hero p { margin:0;line-height:1.9; }
 .controls {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
+  display:flex;
+  gap:12px;
+  margin-bottom:20px;
+  flex-wrap:wrap;
 }
-
-.controls input,
-.controls select {
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: white;
-  flex: 1;
-  min-width: 180px;
+.controls input,.controls select {
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:white;
+  flex:1;
+  min-width:180px;
 }
-
 .categories {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 28px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:28px;
 }
-
 .category {
-  background: white;
-  border: 1px solid #DCCFE6;
-  color: var(--purple);
-  padding: 10px 17px;
-  border-radius: 25px;
-  cursor: pointer;
+  background:white;
+  border:1px solid #DCCFE6;
+  color:var(--purple);
+  padding:10px 17px;
+  border-radius:25px;
 }
-
 .category.active {
-  background: var(--purple);
-  color: white;
+  background:var(--purple);
+  color:white;
 }
-
-h2 { color: var(--purple); }
-
+h2 { color:var(--purple); }
 .products {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:20px;
 }
-
 .card {
-  background: white;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 3px 15px #59447712;
-  border: 1px solid #EEE8F0;
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 3px 15px #59447712;
+  border:1px solid #EEE8F0;
 }
-
 .photo {
-  height: 265px;
-  background: #F0E9F5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--muted);
-  text-align: center;
+  height:265px;
+  background:#F0E9F5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:var(--muted);
+  text-align:center;
 }
-
 .photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
-
-.info { padding: 16px; }
-
-.store {
-  font-size: 12px;
-  color: var(--muted);
-}
-
+.info { padding:16px; }
+.store { font-size:12px;color:var(--muted); }
 .info h3 {
-  font-size: 15px;
-  color: var(--dark);
-  margin: 8px 0;
-  min-height: 48px;
+  font-size:15px;
+  margin:8px 0;
+  min-height:48px;
 }
-
 .price {
-  font-size: 19px;
-  color: var(--purple);
-  font-weight: 800;
+  font-size:19px;
+  color:var(--purple);
+  font-weight:800;
 }
-
-.price small {
-  font-size: 11px;
-  font-weight: 400;
-}
-
+.price small { font-size:11px;font-weight:400; }
 .actions {
-  display: grid;
-  gap: 8px;
-  margin-top: 12px;
+  display:grid;
+  gap:8px;
+  margin-top:12px;
 }
-
 .btn {
-  border: none;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 700;
+  border:0;
+  border-radius:10px;
+  padding:11px;
+  text-align:center;
+  font-size:13px;
+  font-weight:700;
 }
-
-.buy {
-  background: var(--purple);
-  color: white;
-}
-
-.size {
-  background: var(--lavender);
-  color: var(--purple);
-}
-
+.buy { background:var(--purple);color:white; }
+.size { background:var(--lavender);color:var(--purple); }
 .empty {
-  grid-column: 1/-1;
-  background: white;
-  padding: 35px;
-  border-radius: 15px;
-  text-align: center;
-  color: var(--muted);
-  line-height: 1.9;
+  grid-column:1/-1;
+  background:white;
+  padding:35px;
+  border-radius:15px;
+  text-align:center;
+  color:var(--muted);
+  line-height:1.9;
 }
-
 footer {
-  text-align: center;
-  padding: 30px;
-  color: var(--muted);
-  font-size: 12px;
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+  font-size:12px;
 }
-
-/* نافذة المقاسات */
-
 dialog {
-  width: min(620px, 94vw);
-  max-height: 90vh;
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  background: var(--cream);
-  color: var(--dark);
-  overflow: auto;
+  width:min(650px,94vw);
+  max-height:90vh;
+  padding:0;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:var(--cream);
+  color:var(--dark);
+  overflow:auto;
 }
-
-dialog::backdrop {
-  background: rgb(30 20 40 / 55%);
-}
-
+dialog::backdrop { background:#20142899; }
 .modal-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 22px;
-  background: var(--lavender);
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:15px;
+  padding:22px;
+  background:var(--lavender);
 }
-
-.modal-header h2 {
-  margin: 0 0 5px;
-  font-size: 22px;
-}
-
+.modal-header h2 { margin:0; }
 .modal-header p {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.9;
+  margin:5px 0;
+  font-size:13px;
+  line-height:1.9;
 }
-
 .close {
-  border: 0;
-  background: white;
-  color: var(--purple);
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-  cursor: pointer;
-  font-size: 24px;
+  border:0;
+  background:white;
+  color:var(--purple);
+  border-radius:50%;
+  width:36px;
+  height:36px;
+  flex-shrink:0;
+  font-size:24px;
 }
-
-.modal-body { padding: 22px; }
-
+.modal-body { padding:22px; }
 .note {
-  font-size: 13px;
-  line-height: 1.9;
-  color: var(--muted);
-  margin: 0 0 18px;
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.9;
+  margin:0 0 16px;
 }
-
 .fields {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
 }
-
 .field label {
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 8px;
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:7px;
 }
-
-.field input {
-  width: 100%;
-  border: 1px solid var(--border);
-  background: white;
-  padding: 12px;
-  border-radius: 10px;
+.field input,.field select {
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px;
+  background:white;
 }
-
 .field small {
-  display: block;
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 6px;
-  line-height: 1.8;
+  display:block;
+  font-size:11px;
+  color:var(--muted);
+  margin-top:6px;
+  line-height:1.8;
 }
-
-.calculate {
-  width: 100%;
-  margin-top: 20px;
-}
-
+.calculate { width:100%;margin-top:20px; }
 .result {
-  margin-top: 20px;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 18px;
-  line-height: 1.9;
-  overflow-wrap: anywhere;
+  margin-top:20px;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px;
+  line-height:1.9;
+  font-size:13px;
+  overflow-wrap:anywhere;
 }
-
-.result h3 {
-  color: var(--purple);
-  font-size: 17px;
-  margin: 0 0 10px;
-}
-
-.result p {
-  margin: 7px 0;
-  font-size: 13px;
-}
-
-.result ul {
-  padding-inline-start: 22px;
-  font-size: 13px;
-}
-
+.result h3 { color:var(--purple);margin:0 0 8px; }
+.result p { margin:8px 0; }
 .result.match {
-  border-color: #8BAE99;
-  background: #F3FAF5;
+  border-color:#8BAE99;
+  background:#F3FAF5;
 }
-
 .result.caution {
-  border-color: #D8BF86;
-  background: #FFFBF2;
+  border-color:#D8BF86;
+  background:#FFFBF2;
 }
-
-details { margin-top: 22px; }
-
+details { margin-top:22px; }
 summary {
-  color: var(--purple);
-  font-weight: 700;
-  cursor: pointer;
-  font-size: 13px;
+  color:var(--purple);
+  font-weight:700;
+  cursor:pointer;
+  font-size:13px;
 }
-
-.table-wrap { overflow-x: auto; }
-
+.table-wrap { overflow-x:auto; }
 table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 15px;
-  font-size: 13px;
-  background: white;
+  border-collapse:collapse;
+  width:100%;
+  margin-top:15px;
+  font-size:12px;
+  background:white;
 }
-
-caption {
-  text-align: right;
-  font-size: 12px;
-  color: var(--muted);
-  margin-bottom: 10px;
+th,td {
+  padding:10px 7px;
+  border-bottom:1px solid var(--border);
+  text-align:center;
+  white-space:nowrap;
 }
-
-th, td {
-  padding: 11px 8px;
-  text-align: center;
-  border-bottom: 1px solid var(--border);
-  white-space: nowrap;
-}
-
-th {
-  background: var(--lavender);
-  color: var(--purple);
-}
-
-[hidden] { display: none !important; }
-
+th { background:var(--lavender);color:var(--purple); }
+[hidden] { display:none!important; }
 @media(max-width:950px) {
-  .products { grid-template-columns: repeat(3,1fr); }
+  .products { grid-template-columns:repeat(3,1fr); }
 }
-
 @media(max-width:650px) {
   .products {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 12px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
   }
-
-  .photo { height: 200px; }
-  .info { padding: 11px; }
-  nav { gap: 12px; }
+  .photo { height:200px; }
+  .info { padding:11px; }
+  nav { gap:12px; }
 }
-
-@media(max-width:500px) {
-  .fields { grid-template-columns: 1fr; }
-  .modal-header, .modal-body { padding: 18px; }
-}
-
-@media(max-width:370px) {
-  .products { grid-template-columns: 1fr; }
+@media(max-width:400px) {
+  .fields { grid-template-columns:1fr; }
+  .products { grid-template-columns:1fr; }
 }
 </style>
 </head>
 
 <body>
-
 <header>
   <a href="index.html" class="logo">قياسات</a>
-
   <nav aria-label="القائمة الرئيسية">
     <a href="index.html">الرئيسية</a>
     <a href="stores.html">الأقسام</a>
     <a href="measurements.html">ابدئي الآن</a>
-    <a href="user-guide.html">دليل المستخدم</a>
+    <a href="guide.html">الفيديو التعريفي</a>
+    <a href="suggestions.html">الاقتراحات</a>
   </nav>
 </header>
 
@@ -437,7 +306,7 @@ th {
     <h1 id="title">منتجات قياسات</h1>
     <p>
       اكتشفي المنتجات الحقيقية من المتاجر المشاركة،
-      وقارني قياساتك بجدول مقاسات المتجر.
+      وقارني قياساتك بجدول المقاسات الخاص بكل متجر.
     </p>
   </section>
 
@@ -445,7 +314,6 @@ th {
     <input id="search" type="search"
       placeholder="ابحثي عن منتج..."
       aria-label="البحث عن منتج">
-
     <select id="sort" aria-label="ترتيب المنتجات">
       <option value="default">الترتيب الافتراضي</option>
       <option value="low">السعر من الأقل للأعلى</option>
@@ -454,7 +322,6 @@ th {
   </div>
 
   <div class="categories" id="categories"></div>
-
   <h2 id="heading">المنتجات</h2>
 
   <div class="products" id="products" aria-live="polite">
@@ -464,107 +331,44 @@ th {
 
 <footer>قياسات | مقاسك يبدأ من هنا</footer>
 
-<dialog id="sizeDialog" aria-labelledby="sizeTitle"
-  aria-describedby="selectedProduct">
+<dialog id="sizeDialog" aria-labelledby="sizeTitle">
   <div class="modal-header">
     <div>
       <h2 id="sizeTitle">اعرفي مقاسك</h2>
       <p id="selectedProduct"></p>
     </div>
-
     <button class="close" id="closeDialog"
       type="button" aria-label="إغلاق النافذة">×</button>
   </div>
 
   <div class="modal-body">
-    <p id="chartUnavailable" class="note" hidden>
-      لم يُضف جدول مقاسات معتمد لهذا المتجر بعد.
-      راجعي دليل المقاسات في صفحة المنتج لدى المتجر.
-    </p>
+    <p class="note" id="chartNote"></p>
 
-    <div id="chartContent">
-      <p class="note">
-        المقارنة تستخدم جدول بلاك اند لايف المرسل لقياسات،
-        ويشمل منتجات المتجر حسب المعلومات المقدمة لنا.
-        أدخلي القياسات بالسنتيمتر.
-        لا تُحفظ هذه المدخلات في حسابك.
-      </p>
+    <form id="sizeForm">
+      <div class="fields" id="sizeFields"></div>
+      <button class="btn buy calculate" type="submit">
+        عرض نتيجة المقاسات
+      </button>
+    </form>
 
-      <form id="sizeForm">
-        <div class="fields">
-          <div class="field">
-            <label for="chest">محيط الصدر (سم)</label>
-            <input id="chest" name="chest"
-              type="number" inputmode="decimal"
-              step="any" min="0.1" required>
-            <small>مرّري الشريط حول أعرض منطقة من الصدر.</small>
-          </div>
+    <div id="sizeResult" class="result"
+      role="status" aria-live="polite" hidden></div>
 
-          <div class="field">
-            <label for="waist">محيط الخصر (سم)</label>
-            <input id="waist" name="waist"
-              type="number" inputmode="decimal"
-              step="any" min="0.1" required>
-            <small>قيسي حول الخصر دون شدّ الشريط.</small>
-          </div>
-
-          <div class="field">
-            <label for="height">طول الجسم (سم)</label>
-            <input id="height" name="height"
-              type="number" inputmode="decimal"
-              step="any" min="0.1" required>
-            <small>من أعلى الرأس إلى الأرض دون حذاء.</small>
-          </div>
-        </div>
-
-        <button type="submit" class="btn buy calculate">
-          مقارنة قياساتي بجدول المتجر
-        </button>
-      </form>
-
-      <div id="sizeResult" class="result"
-        role="status" aria-live="polite" hidden></div>
-
-      <details>
-        <summary>عرض جدول بلاك اند لايف وطريقة المطابقة</summary>
-
-        <div class="table-wrap">
-          <table>
-            <caption>
-              المصدر: صورة جدول المقاسات المرسلة من المتجر.
-              جميع الأرقام بالسنتيمتر.
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">المقاس</th>
-                <th scope="col">الصدر</th>
-                <th scope="col">الخصر</th>
-                <th scope="col">الطول</th>
-              </tr>
-            </thead>
-            <tbody id="chartRows"></tbody>
-          </table>
-        </div>
-
-        <p class="note">
-          تظهر المطابقة عندما تقع قياسات الصدر والخصر والطول
-          جميعها ضمن نطاقات المقاس نفسه.
-          الحدود المشتركة تُحسب للمقاسين كما وردت في الجدول.
-          إذا اختلفت النتائج، نعرض الاختلاف دون افتراض مقاس.
-        </p>
-
-        <p class="note">
-          نطاق الطول في الصورة فُسّر على أنه طول الجسم.
-          الجدول لا يوضح قياسات القطعة أو تفاصيل قصّتها،
-          لذلك المطابقة مع الجدول لا تضمن ملاءمة القطعة
-          أو توفر المقاس لدى المتجر.
-        </p>
-      </details>
-    </div>
+    <details id="chartDetails">
+      <summary>عرض جدول مقاسات المتجر</summary>
+      <div class="table-wrap">
+        <table>
+          <thead id="chartHead"></thead>
+          <tbody id="chartBody"></tbody>
+        </table>
+      </div>
+    </details>
   </div>
 </dialog>
 
 <script>
+'use strict';
+
 const SUPABASE_URL =
   'https://yscogbqsyexqigfgrmts.supabase.co';
 
@@ -572,30 +376,205 @@ const SUPABASE_KEY =
   'sb_publishable_XnQKDel14uZy3wuoEVPCbg_YnncMGM0';
 
 const categories = [
-  {id:'all', name:'كل الأقسام'},
-  {id:'tshirts', name:'التيشيرتات'},
-  {id:'abayas', name:'العبايات'},
-  {id:'dresses', name:'الفساتين'},
-  {id:'jackets', name:'الجاكيتات'},
-  {id:'jeans', name:'الجينزات'},
-  {id:'pullovers', name:'البلوفرات'}
+  {id:'all',name:'كل الأقسام'},
+  {id:'tshirts',name:'التيشيرتات'},
+  {id:'abayas',name:'العبايات'},
+  {id:'dresses',name:'الفساتين'},
+  {id:'jackets',name:'البيجامات'},
+  {id:'jeans',name:'الجينزات'},
+  {id:'pullovers',name:'البلوفرات'}
 ];
 
-/*
-  الأرقام من صورة الجدول المقدمة فقط.
-  لا تُستخدم هذه البيانات لمتجر آخر.
-*/
-const blackLifeChart = [
-  {size:'S', chest:[86,91], waist:[66,71], height:[165,170]},
-  {size:'M', chest:[91,96], waist:[71,76], height:[170,175]},
-  {size:'L', chest:[96,101], waist:[76,81], height:[175,180]},
-  {size:'XL', chest:[101,106], waist:[81,86], height:[180,185]}
-];
+const charts = {
+  blacklife:{
+    title:'Black & Life',
+    type:'bodyRange',
+    fields:['chest','waist','height'],
+    columns:[
+      ['size','المقاس'],
+      ['chest','الصدر'],
+      ['waist','الخصر'],
+      ['height','طول الجسم']
+    ],
+    rows:[
+      {size:'S',chest:[86,91],waist:[66,71],height:[165,170]},
+      {size:'M',chest:[91,96],waist:[71,76],height:[170,175]},
+      {size:'L',chest:[96,101],waist:[76,81],height:[175,180]},
+      {size:'XL',chest:[101,106],waist:[81,86],height:[180,185]}
+    ]
+  },
+
+  najeans:{
+    title:'NA JEANS',
+    type:'bodyPoints',
+    fields:['waist','hip'],
+    columns:[
+      ['size','المقاس'],
+      ['eu','EU'],
+      ['waist','الخصر'],
+      ['hip','الورك'],
+      ['length','طول الجينز']
+    ],
+    rows:[
+      {size:'XS',eu:'34',waist:60,hip:82,length:106.5},
+      {size:'S',eu:'36',waist:64,hip:86,length:107.5},
+      {size:'M',eu:'38',waist:68,hip:90,length:108.5},
+      {size:'L',eu:'40/42',waist:74,hip:96,length:110},
+      {size:'XL',eu:'44',waist:80,hip:102,length:111.5}
+    ]
+  },
+
+  qamar:{
+    title:'قمر كوتور',
+    type:'bodyPoints',
+    fields:['chest','waist','hip'],
+    columns:[
+      ['size','المقاس'],
+      ['chest','الصدر'],
+      ['waist','الخصر'],
+      ['hip','الأرداف']
+    ],
+    rows:[
+      {size:'XS',chest:76.20,waist:60.96,hip:86.36},
+      {size:'S',chest:81.28,waist:66.04,hip:91.44},
+      {size:'M',chest:86.36,waist:71.12,hip:96.52},
+      {size:'L',chest:91.44,waist:76.20,hip:101.60},
+      {size:'XL',chest:96.52,waist:81.28,hip:106.68},
+      {size:'XXL',chest:101.60,waist:86.36,hip:111.76},
+      {size:'3XL',chest:106.68,waist:91.44,hip:116.84},
+      {size:'4XL',chest:111.76,waist:96.52,hip:121.92}
+    ]
+  },
+
+  mollis:{
+    title:'موليس',
+    type:'garment',
+    unit:'سم',
+    columns:[
+      ['size','المقاس'],
+      ['chest','الصدر'],
+      ['waist','الخصر'],
+      ['shirt','طول القميص'],
+      ['pants','طول البنطلون']
+    ],
+    rows:[
+      {size:'S-M',chest:54,waist:39,shirt:65,pants:98},
+      {size:'L',chest:57,waist:39,shirt:66,pants:99},
+      {size:'XL',chest:61,waist:42,shirt:67,pants:100}
+    ]
+  },
+
+  sj:{
+    title:'SJ Abaya',
+    type:'garment',
+    unit:'إنش',
+    columns:[
+      ['length','طول العباية'],
+      ['width','العرض'],
+      ['sleeve','طول الكم']
+    ],
+    rows:[
+      {length:48,width:20,sleeve:26},
+      {length:50,width:21,sleeve:26},
+      {length:52,width:23,sleeve:27},
+      {length:54,width:24,sleeve:27},
+      {length:56,width:25,sleeve:27},
+      {length:58,width:26,sleeve:28},
+      {length:60,width:27,sleeve:28},
+      {length:62,width:28,sleeve:28.5}
+    ]
+  },
+
+  adreati:{
+    title:'Adreati',
+    type:'garment',
+    unit:'وحدة غير مؤكدة',
+    columns:[
+      ['size','المقاس'],
+      ['shoulder','الكتف'],
+      ['length','الطول'],
+      ['sleeve','طول الأكمام'],
+      ['chest','قياس الصدر']
+    ],
+    rows:[
+      {size:'XS',shoulder:58,length:65,sleeve:58,chest:57},
+      {size:'S',shoulder:60,length:66.5,sleeve:59,chest:59.5},
+      {size:'M',shoulder:62,length:68,sleeve:60,chest:62},
+      {size:'L',shoulder:64,length:69.5,sleeve:61,chest:64.5}
+    ]
+  }
+};
+
+const fieldLabels = {
+  chest:'محيط الصدر',
+  waist:'محيط الخصر',
+  height:'طول الجسم',
+  hip:'محيط الأرداف'
+};
+
+const storeAliases = {
+  blacklife:[
+    'Black & Life','Black and Life','Black Life',
+    'BlackLife','بلاك اند لايف','بلاك أند لايف',
+    'بلاك اند ليف','بلاك آند ليف',
+    'متجر بلاك اند لايف'
+  ],
+  najeans:[
+    'NA JEANS','NAJEANS','NA Jeans','ان اي جينز',
+    'ان اي جينزات'
+  ],
+  qamar:[
+    'قمر كوتور','قمر كوتورز','Qamar Couture',
+    'Qamar','قمر'
+  ],
+  mollis:['موليس','Mollis','mollis369'],
+  sj:['SJ Abaya','SJ','اس جي عباية','اس جي عبايات'],
+  adreati:[
+    'Adreati','أدرياتي','ادرياتي','افياء','أفياء'
+  ]
+};
+
+function normalizeStoreName(value) {
+  return String(value || '')
+    .normalize('NFKC')
+    .toLowerCase()
+    .replace(/[\u064B-\u065F\u0670\u0640]/g,'')
+    .replace(/[أإآ]/g,'ا')
+    .replace(/[^a-z0-9\u0621-\u063A\u0641-\u064A]/g,'');
+}
+
+const aliasLookup = new Map();
+Object.entries(storeAliases).forEach(([key,names]) => {
+  names.forEach(name => {
+    aliasLookup.set(normalizeStoreName(name),key);
+  });
+});
+
+function getChartKey(product) {
+  return aliasLookup.get(
+    normalizeStoreName(product?.store)
+  ) || null;
+}
+
+function safeWebUrl(value) {
+  try {
+    const url = new URL(value);
+    return ['https:','http:'].includes(url.protocol)
+      ? url.href : '';
+  } catch {
+    return '';
+  }
+}
+
+function relationOne(value) {
+  return Array.isArray(value) ? value[0] : value;
+}
 
 let products = [];
 let loading = true;
 let loadError = false;
 let activeProduct = null;
+let activeChart = null;
 
 const params = new URLSearchParams(location.search);
 let selectedCategory = params.get('category') || 'all';
@@ -611,65 +590,14 @@ const sortBox = document.getElementById('sort');
 
 const sizeDialog = document.getElementById('sizeDialog');
 const sizeForm = document.getElementById('sizeForm');
+const sizeFields = document.getElementById('sizeFields');
 const sizeResult = document.getElementById('sizeResult');
-const chartContent = document.getElementById('chartContent');
-const chartUnavailable = document.getElementById('chartUnavailable');
-
-const fieldLabels = {
-  chest: 'محيط الصدر',
-  waist: 'محيط الخصر',
-  height: 'طول الجسم'
-};
-
-/* تحديد المتجر بالاسم دون تعميم الجدول على بقية المتاجر */
-
-function normalizeStoreName(value) {
-  return String(value || '')
-    .normalize('NFKC')
-    .toLowerCase()
-    .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
-    .replace(/[أإآ]/g, 'ا')
-    .replace(/[^a-z0-9\u0621-\u063A\u0641-\u064A]/g, '');
-}
-
-const blackLifeNames = new Set([
-  'بلاك اند لايف',
-  'بلاك أند لايف',
-  'بلاك اند ليف',
-  'بلاك آند ليف',
-  'Black & Life',
-  'Black and Life',
-  'Black Life',
-  'BlackLife',
-  'متجر بلاك اند لايف',
-  'متجر بلاك اند ليف'
-].map(normalizeStoreName));
-
-function hasBlackLifeChart(product) {
-  return Boolean(
-    product &&
-    blackLifeNames.has(normalizeStoreName(product.store))
-  );
-}
-
-function safeWebUrl(value) {
-  try {
-    const url = new URL(value);
-    return ['https:', 'http:'].includes(url.protocol)
-      ? url.href
-      : '';
-  } catch {
-    return '';
-  }
-}
-
-function relationOne(value) {
-  return Array.isArray(value) ? value[0] : value;
-}
+const chartNote = document.getElementById('chartNote');
+const chartHead = document.getElementById('chartHead');
+const chartBody = document.getElementById('chartBody');
 
 function showMessage(message) {
   productBox.replaceChildren();
-
   const box = document.createElement('div');
   box.className = 'empty';
   box.textContent = message;
@@ -682,7 +610,7 @@ async function loadProducts() {
   showMessage('جاري تحميل المنتجات...');
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 20000);
+  const timeout = setTimeout(() => controller.abort(),20000);
 
   try {
     const endpoint = new URL(
@@ -694,27 +622,25 @@ async function loadProducts() {
       'id,name,price,currency,image_url,product_url,' +
       'categories(slug),stores(name)'
     );
+    endpoint.searchParams.set('status','eq.active');
+    endpoint.searchParams.set('order','created_at.desc');
 
-    endpoint.searchParams.set('status', 'eq.active');
-    endpoint.searchParams.set('order', 'created_at.desc');
-
-    const response = await fetch(endpoint.toString(), {
-      method: 'GET',
-      headers: {
-        'apikey': SUPABASE_KEY,
-        'Accept': 'application/json'
+    const response = await fetch(endpoint.toString(),{
+      headers:{
+        apikey:SUPABASE_KEY,
+        Accept:'application/json'
       },
-      signal: controller.signal
+      signal:controller.signal
     });
 
     if (!response.ok) {
-      throw new Error('HTTP ' + response.status);
+      throw new Error('HTTP '+response.status);
     }
 
     const rows = await response.json();
 
     if (!Array.isArray(rows)) {
-      throw new Error('الاستجابة ليست قائمة منتجات');
+      throw new Error('استجابة غير صحيحة');
     }
 
     products = rows.map(row => {
@@ -722,26 +648,25 @@ async function loadProducts() {
       const store = relationOne(row.stores);
 
       return {
-        id: row.id,
-        name: String(row.name || 'منتج بدون اسم'),
-        category: category?.slug || '',
-        store: String(store?.name || 'متجر مشارك'),
-        price: row.price == null ? null : Number(row.price),
-        currency: row.currency || 'SAR',
-        image: safeWebUrl(row.image_url),
-        url: safeWebUrl(row.product_url)
+        id:row.id,
+        name:String(row.name || 'منتج بدون اسم'),
+        category:category?.slug || '',
+        store:String(store?.name || 'متجر مشارك'),
+        price:row.price == null ? null : Number(row.price),
+        currency:row.currency || 'SAR',
+        image:safeWebUrl(row.image_url),
+        url:safeWebUrl(row.product_url)
       };
     });
 
     loading = false;
     renderProducts();
-  } catch (error) {
-    console.error('تعذر تحميل المنتجات:', error);
+  } catch(error) {
+    console.error('تعذر تحميل المنتجات:',error);
     loading = false;
     loadError = true;
-
     showMessage(
-      'تعذر تحميل المنتجات. تحققي من الاتصال ثم أعيدي تحميل الصفحة.'
+      'تعذر تحميل المنتجات. تحققي من الاتصال وأعيدي تحميل الصفحة.'
     );
   } finally {
     clearTimeout(timeout);
@@ -756,25 +681,23 @@ function renderCategories() {
     button.type = 'button';
     button.className = 'category' +
       (selectedCategory === category.id ? ' active' : '');
-
     button.textContent = category.name;
     button.setAttribute(
       'aria-pressed',
       String(selectedCategory === category.id)
     );
 
-    button.addEventListener('click', () => {
+    button.addEventListener('click',() => {
       selectedCategory = category.id;
 
       const url = new URL(location.href);
-
       if (category.id === 'all') {
         url.searchParams.delete('category');
       } else {
-        url.searchParams.set('category', category.id);
+        url.searchParams.set('category',category.id);
       }
 
-      history.replaceState({}, '', url);
+      history.replaceState({},'',url);
       renderCategories();
       renderProducts();
     });
@@ -785,12 +708,12 @@ function renderCategories() {
 
 function formatPrice(product) {
   try {
-    return new Intl.NumberFormat('ar-SA', {
-      style: 'currency',
-      currency: product.currency
+    return new Intl.NumberFormat('ar-SA',{
+      style:'currency',
+      currency:product.currency
     }).format(product.price);
   } catch {
-    return product.price.toFixed(2) + ' ' + product.currency;
+    return product.price.toFixed(2)+' '+product.currency;
   }
 }
 
@@ -807,7 +730,7 @@ function renderProducts() {
   document.getElementById('heading').textContent =
     selectedCategory === 'all'
       ? 'جميع المنتجات'
-      : 'منتجات ' + current.name;
+      : 'منتجات '+current.name;
 
   if (loading) {
     showMessage('جاري تحميل المنتجات...');
@@ -815,9 +738,7 @@ function renderProducts() {
   }
 
   if (loadError) {
-    showMessage(
-      'تعذر تحميل المنتجات. أعيدي تحميل الصفحة للمحاولة مجددًا.'
-    );
+    showMessage('تعذر تحميل المنتجات.');
     return;
   }
 
@@ -838,25 +759,23 @@ function renderProducts() {
   });
 
   if (sortBox.value !== 'default') {
-    list.sort((a, b) => {
-      const aValid = Number.isFinite(a.price);
-      const bValid = Number.isFinite(b.price);
-
-      if (!aValid && !bValid) return 0;
-      if (!aValid) return 1;
-      if (!bValid) return -1;
-
+    list.sort((a,b) => {
+      const av = Number.isFinite(a.price);
+      const bv = Number.isFinite(b.price);
+      if (!av && !bv) return 0;
+      if (!av) return 1;
+      if (!bv) return -1;
       return sortBox.value === 'low'
-        ? a.price - b.price
-        : b.price - a.price;
+        ? a.price-b.price
+        : b.price-a.price;
     });
   }
 
   if (!list.length) {
     showMessage(
       query
-        ? 'لا توجد منتجات مطابقة لبحثك في هذا القسم.'
-        : 'لا توجد منتجات منشورة لهذه الفئة حاليًا.'
+        ? 'لا توجد منتجات مطابقة لبحثك.'
+        : 'لا توجد منتجات منشورة في هذا القسم حاليًا.'
     );
     return;
   }
@@ -873,11 +792,9 @@ function renderProducts() {
       img.src = product.image;
       img.alt = product.name;
       img.loading = 'lazy';
-
       img.onerror = () => {
         photo.textContent = 'صورة المنتج غير متاحة';
       };
-
       photo.appendChild(img);
     } else {
       photo.textContent = 'صورة المنتج غير متاحة';
@@ -898,11 +815,9 @@ function renderProducts() {
 
     if (Number.isFinite(product.price)) {
       price.textContent = formatPrice(product);
-
-      const note = document.createElement('small');
-      note.textContent = 'السعر قابل للتغيير لدى المتجر';
-
-      price.append(document.createElement('br'), note);
+      const small = document.createElement('small');
+      small.textContent = 'السعر قابل للتغيير لدى المتجر';
+      price.append(document.createElement('br'),small);
     } else {
       price.textContent = 'السعر لدى المتجر';
     }
@@ -924,54 +839,15 @@ function renderProducts() {
     size.type = 'button';
     size.className = 'btn size';
     size.textContent = 'اعرفي مقاسك';
-    size.addEventListener('click', () => openSizeDialog(product));
+    size.addEventListener('click',() => {
+      openSizeDialog(product);
+    });
 
     actions.appendChild(size);
-    info.append(store, title, price, actions);
-    card.append(photo, info);
+    info.append(store,title,price,actions);
+    card.append(photo,info);
     productBox.appendChild(card);
   });
-}
-
-/* عرض جدول المتجر من نفس الأرقام المستخدمة في الحساب */
-
-const chartRows = document.getElementById('chartRows');
-
-blackLifeChart.forEach(row => {
-  const tr = document.createElement('tr');
-
-  const size = document.createElement('th');
-  size.scope = 'row';
-  size.textContent = row.size;
-  tr.appendChild(size);
-
-  ['chest', 'waist', 'height'].forEach(key => {
-    const td = document.createElement('td');
-    const range = document.createElement('bdi');
-    range.dir = 'ltr';
-    range.textContent = row[key][0] + '–' + row[key][1];
-    td.appendChild(range);
-    tr.appendChild(td);
-  });
-
-  chartRows.appendChild(tr);
-});
-
-function openSizeDialog(product) {
-  activeProduct = product;
-
-  document.getElementById('selectedProduct').textContent =
-    product.name + ' — ' + product.store;
-
-  sizeForm.reset();
-  clearResult();
-
-  const available = hasBlackLifeChart(product);
-  chartContent.hidden = !available;
-  chartUnavailable.hidden = available;
-
-  sizeDialog.querySelector('details').open = false;
-  sizeDialog.showModal();
 }
 
 function clearResult() {
@@ -980,123 +856,303 @@ function clearResult() {
   sizeResult.replaceChildren();
 }
 
-document.getElementById('closeDialog')
-  .addEventListener('click', () => sizeDialog.close());
+function addResult(title,message,success=false) {
+  clearResult();
+  sizeResult.hidden = false;
+  sizeResult.classList.add(success ? 'match' : 'caution');
 
-sizeDialog.addEventListener('close', () => {
-  activeProduct = null;
-});
+  const h = document.createElement('h3');
+  h.textContent = title;
 
-sizeForm.addEventListener('input', clearResult);
+  const p = document.createElement('p');
+  p.textContent = message;
 
-function within(value, range) {
+  sizeResult.append(h,p);
+}
+
+function displayValue(value) {
+  if (Array.isArray(value)) {
+    return value[0]+'–'+value[1];
+  }
+  return value == null ? '—' : String(value);
+}
+
+function renderChart(chart) {
+  chartHead.replaceChildren();
+  chartBody.replaceChildren();
+
+  const heading = document.createElement('tr');
+  chart.columns.forEach(([,label]) => {
+    const th = document.createElement('th');
+    th.textContent = label;
+    heading.appendChild(th);
+  });
+  chartHead.appendChild(heading);
+
+  chart.rows.forEach(row => {
+    const tr = document.createElement('tr');
+    chart.columns.forEach(([key]) => {
+      const td = document.createElement('td');
+      const bdi = document.createElement('bdi');
+      bdi.dir = 'ltr';
+      bdi.textContent = displayValue(row[key]);
+      td.appendChild(bdi);
+      tr.appendChild(td);
+    });
+    chartBody.appendChild(tr);
+  });
+}
+
+function createNumberField(key) {
+  const wrap = document.createElement('div');
+  wrap.className = 'field';
+
+  const label = document.createElement('label');
+  label.htmlFor = 'measure_'+key;
+  label.textContent = fieldLabels[key]+' (سم)';
+
+  const input = document.createElement('input');
+  input.type = 'number';
+  input.id = 'measure_'+key;
+  input.name = key;
+  input.min = '0.1';
+  input.step = 'any';
+  input.inputMode = 'decimal';
+  input.required = true;
+
+  wrap.append(label,input);
+  sizeFields.appendChild(wrap);
+}
+
+function createSelectField(chart) {
+  const wrap = document.createElement('div');
+  wrap.className = 'field';
+
+  const label = document.createElement('label');
+  label.htmlFor = 'garmentChoice';
+  label.textContent =
+    chart === charts.sj
+      ? 'طول العباية (إنش)'
+      : 'اختاري المقاس لعرض قياساته';
+
+  const select = document.createElement('select');
+  select.id = 'garmentChoice';
+  select.name = 'choice';
+  select.required = true;
+
+  const first = document.createElement('option');
+  first.value = '';
+  first.textContent = 'اختاري من القائمة';
+  select.appendChild(first);
+
+  chart.rows.forEach((row,index) => {
+    const option = document.createElement('option');
+    option.value = String(index);
+    option.textContent =
+      chart === charts.sj
+        ? row.length+' إنش'
+        : row.size;
+    select.appendChild(option);
+  });
+
+  wrap.append(label,select);
+  sizeFields.appendChild(wrap);
+}
+
+function openSizeDialog(product) {
+  activeProduct = product;
+  const key = getChartKey(product);
+  activeChart = key ? charts[key] : null;
+
+  document.getElementById('selectedProduct').textContent =
+    product.name+' — '+product.store;
+
+  sizeFields.replaceChildren();
+  sizeForm.reset();
+  clearResult();
+  document.getElementById('chartDetails').open = false;
+
+  if (!activeChart) {
+    chartNote.textContent =
+      'لم يتوفر جدول مقاسات لهذا المتجر. '+
+      'راجعي دليل المقاسات لدى المتجر.';
+    sizeForm.hidden = true;
+    document.getElementById('chartDetails').hidden = true;
+    sizeDialog.showModal();
+    return;
+  }
+
+  sizeForm.hidden = false;
+  document.getElementById('chartDetails').hidden = false;
+  renderChart(activeChart);
+
+  if (activeChart.type === 'bodyRange') {
+    chartNote.textContent =
+      'أدخلي قياسات جسمك بالسنتيمتر. '+
+      'سنبحث عن المقاس الذي يشمل جميع قياساتك '+
+      'ضمن نطاقاته المنشورة في جدول المتجر.';
+    activeChart.fields.forEach(createNumberField);
+  } else if (activeChart.type === 'bodyPoints') {
+    chartNote.textContent =
+      'أدخلي قياسات جسمك بالسنتيمتر. '+
+      'سنقارنها بالقيم المرجعية للمتجر. '+
+      'النتيجة استرشادية لأن الجدول لا يوضح '+
+      'نطاقًا كاملًا لكل مقاس.';
+    activeChart.fields.forEach(createNumberField);
+  } else {
+    chartNote.textContent =
+      'هذا الجدول يعرض قياسات القطعة، وليس '+
+      'محيط جسم العميلة. اختاري المقاس أو الطول '+
+      'لعرض القياسات الأصلية دون افتراض ملاءمته لجسمك. '+
+      'الوحدة: '+activeChart.unit+'.';
+    createSelectField(activeChart);
+  }
+
+  sizeDialog.showModal();
+}
+
+function within(value,range) {
   return value >= range[0] && value <= range[1];
 }
 
-function addResultText(text) {
-  const p = document.createElement('p');
-  p.textContent = text;
-  sizeResult.appendChild(p);
+function calculateRange(chart,values) {
+  const matches = chart.rows.filter(row =>
+    chart.fields.every(key => within(values[key],row[key]))
+  );
+
+  if (matches.length === 1) {
+    addResult(
+      'المقاس المطابق للجدول: '+matches[0].size,
+      'جميع القياسات المدخلة تقع ضمن نطاقات هذا المقاس. '+
+      'هذه مطابقة للجدول وليست ضمانًا لملاءمة قصة القطعة.',
+      true
+    );
+  } else if (matches.length > 1) {
+    addResult(
+      'أكثر من مقاس مطابق',
+      'المقاسات المطابقة: '+
+      matches.map(row => row.size).join('، ')+
+      '. قياساتك تقع على حدود مشتركة؛ راجعي المتجر.'
+    );
+  } else {
+    addResult(
+      'لا يوجد مقاس مطابق بالكامل',
+      'لا يوجد مقاس واحد يشمل جميع القياسات '+
+      'التي أدخلتِها. راجعي المتجر قبل الشراء.'
+    );
+  }
 }
 
-sizeForm.addEventListener('submit', event => {
+function calculatePoints(chart,values) {
+  /*
+    القيم المنشورة ليست نطاقات.
+    نعرض فقط المطابقة الرقمية التامة لجميع القياسات،
+    ولا نخترع حدودًا بين المقاسات.
+  */
+  const exact = chart.rows.filter(row =>
+    chart.fields.every(key =>
+      Math.abs(row[key]-values[key]) < 0.005
+    )
+  );
+
+  if (exact.length === 1) {
+    addResult(
+      'مطابقة رقمية: '+exact[0].size,
+      'قياساتك تساوي القيم المنشورة لهذا المقاس. '+
+      'تأكدي من المتجر أن الجدول يصف قياسات الجسم '+
+      'وليس قياسات القطعة قبل اعتماد الاختيار.',
+      false
+    );
+  } else if (exact.length > 1) {
+    addResult(
+      'أكثر من مطابقة رقمية',
+      'القيم تطابق: '+
+      exact.map(row => row.size).join('، ')+
+      '. راجعي المتجر لتحديد الأنسب.'
+    );
+  } else {
+    addResult(
+      'لا توجد مطابقة رقمية كاملة',
+      'جدول المتجر يحتوي على قيم منفردة، '+
+      'ولا يوضح نطاقات المقاسات. '+
+      'لا يمكن تحديد المقاس بثقة دون قواعد إضافية من المتجر.'
+    );
+  }
+}
+
+function calculateGarment(chart,formData) {
+  const index = Number(formData.get('choice'));
+  const row = chart.rows[index];
+
+  if (!row) {
+    addResult('اختيار غير صحيح','اختاري قيمة من القائمة.');
+    return;
+  }
+
+  const details = chart.columns
+    .map(([key,label]) =>
+      label+': '+displayValue(row[key])+
+      (key === 'size' ? '' : ' '+chart.unit)
+    )
+    .join(' | ');
+
+  addResult(
+    'قياسات القطعة المختارة',
+    details+
+    '. هذه أبعاد منشورة من المتجر، '+
+    'ولا تؤكد أن القطعة مناسبة لمحيط جسمك.',
+    true
+  );
+}
+
+sizeForm.addEventListener('submit',event => {
   event.preventDefault();
+  if (!activeChart || !sizeForm.reportValidity()) return;
 
-  if (!hasBlackLifeChart(activeProduct)) return;
-  if (!sizeForm.reportValidity()) return;
+  const formData = new FormData(sizeForm);
 
-  const values = {
-    chest: document.getElementById('chest').valueAsNumber,
-    waist: document.getElementById('waist').valueAsNumber,
-    height: document.getElementById('height').valueAsNumber
-  };
+  if (activeChart.type === 'garment') {
+    calculateGarment(activeChart,formData);
+    return;
+  }
 
-  clearResult();
+  const values = {};
+  for (const key of activeChart.fields) {
+    values[key] = Number(formData.get(key));
+  }
 
   if (!Object.values(values).every(
     value => Number.isFinite(value) && value > 0
   )) {
-    sizeResult.hidden = false;
-    sizeResult.classList.add('caution');
-    addResultText('أدخلي أرقامًا صحيحة أكبر من صفر لجميع القياسات.');
+    addResult(
+      'قياسات غير صحيحة',
+      'أدخلي أرقامًا صحيحة أكبر من صفر.'
+    );
     return;
   }
 
-  const keys = ['chest', 'waist', 'height'];
-
-  const matches = blackLifeChart.filter(row =>
-    keys.every(key => within(values[key], row[key]))
-  );
-
-  const title = document.createElement('h3');
-
-  if (matches.length === 1) {
-    sizeResult.classList.add('match');
-    title.textContent =
-      'المقاس المطابق للجدول: ' + matches[0].size;
-
-    sizeResult.appendChild(title);
-
-    addResultText(
-      'قياسات الصدر والخصر والطول التي أدخلتِها تقع جميعها ' +
-      'ضمن نطاقات هذا المقاس في جدول بلاك اند لايف.'
-    );
-  } else if (matches.length > 1) {
-    sizeResult.classList.add('caution');
-    title.textContent = 'قياساتك تقع على حدود مشتركة';
-    sizeResult.appendChild(title);
-
-    addResultText(
-      'القياسات تطابق المقاسات التالية في الجدول: ' +
-      matches.map(row => row.size).join(' و ') +
-      '. لا يحدد الجدول أيّها أفضل عند هذه الحدود؛ ' +
-      'راجعي المتجر قبل اختيار المقاس.'
-    );
+  if (activeChart.type === 'bodyRange') {
+    calculateRange(activeChart,values);
   } else {
-    sizeResult.classList.add('caution');
-    title.textContent = 'لا يوجد مقاس يطابق قياساتك بالكامل';
-    sizeResult.appendChild(title);
-
-    addResultText(
-      'لا توجد خانة واحدة في الجدول تشمل الصدر والخصر والطول ' +
-      'معًا، لذلك لا يمكن تحديد مقاس مطابق اعتمادًا عليه.'
-    );
+    calculatePoints(activeChart,values);
   }
-
-  const breakdown = document.createElement('ul');
-
-  keys.forEach(key => {
-    const matchingSizes = blackLifeChart
-      .filter(row => within(values[key], row[key]))
-      .map(row => row.size);
-
-    const item = document.createElement('li');
-
-    item.textContent =
-      fieldLabels[key] + ': ' + values[key] + ' سم — ' +
-      (matchingSizes.length
-        ? 'ضمن نطاق ' + matchingSizes.join(' و ')
-        : 'خارج النطاقات الواردة في الجدول');
-
-    breakdown.appendChild(item);
-  });
-
-  sizeResult.appendChild(breakdown);
-
-  addResultText(
-    'النتيجة مطابقة لجدول المتجر وليست ضمانًا لملاءمة ' +
-    'قصة القطعة. تحققي من توفر المقاس وتفاصيل المنتج لدى المتجر.'
-  );
-
-  sizeResult.hidden = false;
 });
 
-searchBox.addEventListener('input', renderProducts);
-sortBox.addEventListener('change', renderProducts);
+sizeForm.addEventListener('input',clearResult);
+
+document.getElementById('closeDialog')
+  .addEventListener('click',() => sizeDialog.close());
+
+sizeDialog.addEventListener('close',() => {
+  activeProduct = null;
+  activeChart = null;
+});
+
+searchBox.addEventListener('input',renderProducts);
+sortBox.addEventListener('change',renderProducts);
 
 renderCategories();
 loadProducts();
 </script>
-
 </body>
 </html>
