@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الاقتراحات | قياسات</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:#FAF7F2;
+  --lavender:#E9DFF2;
+  --purple:#594477;
+  --dark:#382D43;
+  --muted:#776D7E;
+  --border:#E2D7EA;
+  --white:#FFFFFF;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+  margin:0;
+  font-family:Cairo,sans-serif;
+  background:var(--cream);
+  color:var(--dark);
+}
+
+a {
+  text-decoration:none;
+  color:inherit;
+}
+
+button,input,select,textarea {
+  font:inherit;
+}
+
+header {
+  background:white;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
+  box-shadow:0 2px 15px #59447712;
+}
+
+.logo {
+  font-size:26px;
+  font-weight:800;
+  color:var(--purple);
+}
+
+nav {
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+nav a {
+  font-size:14px;
+}
+
+nav a:hover,
+nav a.active {
+  color:var(--purple);
+  font-weight:700;
+}
+
+main {
+  width:min(900px,92%);
+  margin:45px auto;
+}
+
+.hero {
+  background:var(--lavender);
+  padding:35px 25px;
+  border-radius:22px;
+  text-align:center;
+  margin-bottom:28px;
+}
+
+.hero-icon {
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.hero h1 {
+  color:var(--purple);
+  font-size:27px;
+  margin:0 0 12px;
+}
+
+.hero p {
+  font-size:14px;
+  line-height:2;
+  margin:0;
+}
+
+.form-card {
+  background:white;
+  border:1px solid #EEE8F0;
+  border-radius:22px;
+  padding:32px;
+  box-shadow:0 5px 25px #59447710;
+}
+
+.form-card h2 {
+  color:var(--purple);
+  font-size:21px;
+  margin:0 0 10px;
+}
+
+.subtitle {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.9;
+  margin:0 0 28px;
+}
+
+.field {
+  margin-bottom:22px;
+}
+
+.field label {
+  display:block;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:9px;
+}
+
+.optional {
+  color:var(--muted);
+  font-size:11px;
+  font-weight:400;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width:100%;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#FFFEFD;
+  color:var(--dark);
+  outline:none;
+  transition:border-color .2s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color:var(--purple);
+  box-shadow:0 0 0 3px #E9DFF2;
+}
+
+.field textarea {
+  min-height:170px;
+  resize:vertical;
+  line-height:1.9;
+}
+
+.field small {
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:7px;
+}
+
+.counter {
+  text-align:left;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:5px;
+}
+
+.submit-btn {
+  display:block;
+  width:100%;
+  background:var(--purple);
+  color:white;
+  border:0;
+  border-radius:12px;
+  padding:15px;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+  transition:background .2s;
+}
+
+.submit-btn:hover {
+  background:#46345F;
+}
+
+.submit-btn:disabled {
+  opacity:.65;
+  cursor:not-allowed;
+}
+
+.message {
+  padding:17px;
+  border-radius:12px;
+  margin-top:20px;
+  font-size:13px;
+  line-height:1.9;
+  text-align:center;
+}
+
+.message.success {
+  background:#F0FAF3;
+  border:1px solid #A4CBB0;
+  color:#285D3B;
+}
+
+.message.error {
+  background:#FFF5F2;
+  border:1px solid #E8B6A8;
+  color:#9B3D2D;
+}
+
+.privacy {
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.9;
+  margin-top:20px;
+}
+
+footer {
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+[hidden] {
+  display:none!important;
+}
+
+@media(max-width:600px) {
+  main {
+    margin:25px auto;
+  }
+
+  .hero {
+    padding:27px 18px;
+  }
+
+  .hero h1 {
+    font-size:23px;
+  }
+
+  .form-card {
+    padding:22px 17px;
+  }
+
+  nav {
+    gap:12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">قياسات</a>
+
+  <nav aria-label="القائمة الرئيسية">
+    <a href="index.html">الرئيسية</a>
+    <a href="stores.html">الأقسام</a>
+    <a href="measurements.html">ابدئي الآن</a>
+    <a href="guide.html">الفيديو التعريفي</a>
+    <a href="suggestions.html" class="active">الاقتراحات</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-icon"></div>
+    <h1>اقتراحاتكم تصنع الفرق</h1>
+    <p>
+      في قياسات، نهتم بآرائكم وأفكاركم.
+      شاركونا اقتراحاتكم لتطوير الموقع
+      وجعل تجربة اختيار المقاس أسهل وأفضل للجميع.
+    </p>
+  </section>
+
+  <section class="form-card">
+
+    <h2>شاركونا اقتراحكم</h2>
+
+    <p class="subtitle">
+      هل لديك فكرة لتطوير قياسات؟
+      أو متجر تتمنى إضافته؟
+      اكتبي اقتراحك وسنكون سعداء بقراءته.
+    </p>
+
+    <form id="suggestionForm">
+
+      <div class="field">
+        <label for="visitorName">
+          الاسم
+          <span class="optional">(اختياري)</span>
+        </label>
+
+        <input
+          type="text"
+          id="visitorName"
+          name="visitorName"
+          maxlength="80"
+          autocomplete="name"
+          placeholder="اكتبي اسمك هنا">
+      </div>
+
+      <div class="field">
+        <label for="suggestionType">
+          نوع الاقتراح
+        </label>
+
+        <select
+          id="suggestionType"
+          name="suggestionType"
+          required>
+
+          <option value="">
+            اختاري نوع الاقتراح
+          </option>
+
+          <option value="store">
+            اقتراح متجر جديد
+          </option>
+
+          <option value="category">
+            إضافة قسم جديد
+          </option>
+
+          <option value="feature">
+            اقتراح ميزة جديدة
+          </option>
+
+          <option value="improvement">
+            تحسين الموقع
+          </option>
+
+          <option value="problem">
+            الإبلاغ عن مشكلة
+          </option>
+
+          <option value="other">
+            اقتراح آخر
+          </option>
+
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="suggestionText">
+          اكتبي اقتراحك
+        </label>
+
+        <textarea
+          id="suggestionText"
+          name="suggestionText"
+          required
+          minlength="10"
+          maxlength="2000"
+          placeholder="اكتبي لنا فكرتك أو اقتراحك بالتفصيل..."></textarea>
+
+        <div class="counter">
+          <span id="charCount">0</span>
+          / 2000 حرف
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        id="submitButton"
+        class="submit-btn">
+        إرسال الاقتراح 
+      </button>
+
+      <div
+        id="formMessage"
+        class="message"
+        role="status"
+        aria-live="polite"
+        hidden>
+      </div>
+
+    </form>
+
+    <p class="privacy">
+       اقتراحك يصل إلى إدارة قياسات فقط،
+      ولا يُعرض للزوار.
+      لا تضيفي معلومات شخصية أو حساسة داخل الاقتراح.
+    </p>
+
+  </section>
+
+</main>
+
+<footer>
+  قياسات | مقاسك يبدأ من هنا
+</footer>
+
+<script>
+'use strict';
+
+const SUPABASE_URL =
+  'https://yscogbqsyexqigfgrmts.supabase.co';
+
+const SUPABASE_KEY =
+  'sb_publishable_XnQKDel14uZy3wuoEVPCbg_YnncMGM0';
+
+const form =
+  document.getElementById('suggestionForm');
+
+const nameInput =
+  document.getElementById('visitorName');
+
+const typeInput =
+  document.getElementById('suggestionType');
+
+const textInput =
+  document.getElementById('suggestionText');
+
+const charCount =
+  document.getElementById('charCount');
+
+const submitButton =
+  document.getElementById('submitButton');
+
+const formMessage =
+  document.getElementById('formMessage');
+
+textInput.addEventListener('input', () => {
+  charCount.textContent = textInput.value.length;
+});
+
+function showMessage(message, type) {
+  formMessage.hidden = false;
+  formMessage.className = 'message ' + type;
+  formMessage.textContent = message;
+}
+
+function clearMessage() {
+  formMessage.hidden = true;
+  formMessage.textContent = '';
+}
+
+form.addEventListener('input', clearMessage);
+
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+
+  if (!form.reportValidity()) return;
+
+  const visitorName = nameInput.value.trim();
+  const suggestionType = typeInput.value;
+  const suggestionText = textInput.value.trim();
+
+  const allowedTypes = [
+    'store',
+    'category',
+    'feature',
+    'improvement',
+    'problem',
+    'other'
+  ];
+
+  if (!allowedTypes.includes(suggestionType)) {
+    showMessage(
+      'اختاري نوع الاقتراح أولًا.',
+      'error'
+    );
+    return;
+  }
+
+  if (
+    suggestionText.length < 10 ||
+    suggestionText.length > 2000
+  ) {
+    showMessage(
+      'الاقتراح يجب أن يكون بين 10 و2000 حرف.',
+      'error'
+    );
+    return;
+  }
+
+  if (visitorName.length > 80) {
+    showMessage(
+      'الاسم طويل جدًا.',
+      'error'
+    );
+    return;
+  }
+
+  submitButton.disabled = true;
+  submitButton.textContent = 'جاري إرسال الاقتراح...';
+  clearMessage();
+
+  const controller = new AbortController();
+  const timeout = setTimeout(
+    () => controller.abort(),
+    20000
+  );
+
+  try {
+    const response = await fetch(
+      SUPABASE_URL + '/rest/v1/suggestions',
+      {
+        method:'POST',
+        headers:{
+          'apikey':SUPABASE_KEY,
+          'Content-Type':'application/json',
+          'Accept':'application/json',
+          'Prefer':'return=minimal'
+        },
+        body:JSON.stringify({
+          visitor_name:visitorName || null,
+          suggestion_type:suggestionType,
+          suggestion_text:suggestionText
+        }),
+        signal:controller.signal
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error('HTTP ' + response.status);
+    }
+
+    form.reset();
+    charCount.textContent = '0';
+
+    showMessage(
+      'شكرًا لكِ!  تم إرسال اقتراحك بنجاح. ' +
+      'نقدّر مشاركتك في تطوير قياسات.',
+      'success'
+    );
+
+  } catch(error) {
+    console.error('تعذر إرسال الاقتراح:', error);
+
+    showMessage(
+      'تعذر إرسال الاقتراح حاليًا. ' +
+      'تحققي من الاتصال وحاولي مرة أخرى.',
+      'error'
+    );
+
+  } finally {
+    clearTimeout(timeout);
+    submitButton.disabled = false;
+    submitButton.textContent = 'إرسال الاقتراح ';
+  }
+});
+</script>
+
+</body>
+</html>
